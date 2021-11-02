@@ -212,7 +212,7 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>223 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>381 字</span>
         </span>
     
     
@@ -233,16 +233,15 @@
         
 
         <div class="article-content markdown-body">
-            <p>测试插入图片：</p>
-<ol>
-<li> 在<code>主题</code>的<code>images</code>文件夹下面建立<code>wz</code>文件夹，引用该相对路径，命令如下：</li>
+            <h2 id="测试插入图片："><a href="#测试插入图片：" class="headerlink" title="测试插入图片："></a>测试插入图片：</h2><ol>
+<li><h3 id="在主题的images文件夹下面建立wz文件夹，引用该相对路径，命令如下："><a href="#在主题的images文件夹下面建立wz文件夹，引用该相对路径，命令如下：" class="headerlink" title="在主题的images文件夹下面建立wz文件夹，引用该相对路径，命令如下："></a>在<code>主题</code>的<code>images</code>文件夹下面建立<code>wz</code>文件夹，引用该相对路径，命令如下：</h3></li>
 </ol>
 <p><code>！[alt](/images/wz/IMG_0382.jpg)</code></p>
 <p>展示：</p>
 <p>！<a href="/images/wz/IMG_0382.jpg">alt</a></p>
 <p>结果：不能显示</p>
 <ol start="2">
-<li>在博客根目录中的<code>source</code>文件夹中新建<code>images</code>文件夹，引用该相对路径，命令如下</li>
+<li><h3 id="在博客根目录中的source文件夹中新建images文件夹，引用该相对路径，命令如下"><a href="#在博客根目录中的source文件夹中新建images文件夹，引用该相对路径，命令如下" class="headerlink" title="在博客根目录中的source文件夹中新建images文件夹，引用该相对路径，命令如下"></a>在博客根目录中的<code>source</code>文件夹中新建<code>images</code>文件夹，引用该相对路径，命令如下</h3></li>
 </ol>
 <p><code>![rig](/images/IMG_0382.jpg)</code></p>
 <p>展示</p>
@@ -257,6 +256,12 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">NetworkCoding</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String [] args)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">try</span></span><br><span class="line">        &#123;</span><br><span class="line">            URL url = <span class="keyword">new</span> URL(<span class="string">&quot;http://www.runoob.com&quot;</span>);</span><br><span class="line">            URLConnection urlConnection = url.openConnection();</span><br><span class="line">            HttpURLConnection connection = <span class="keyword">null</span>;</span><br><span class="line">            <span class="keyword">if</span>(urlConnection <span class="keyword">instanceof</span> HttpURLConnection)</span><br><span class="line">            &#123;</span><br><span class="line">                connection = (HttpURLConnection) urlConnection;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">else</span></span><br><span class="line">            &#123;</span><br><span class="line">                System.out.println(<span class="string">&quot;请输入 URL 地址&quot;</span>);</span><br><span class="line">                <span class="keyword">return</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            BufferedReader in = <span class="keyword">new</span> BufferedReader(</span><br><span class="line">                    <span class="keyword">new</span> InputStreamReader(connection.getInputStream()));</span><br><span class="line">            String urlString = <span class="string">&quot;&quot;</span>;</span><br><span class="line">            String current;</span><br><span class="line">            <span class="keyword">while</span>((current = in.readLine()) != <span class="keyword">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                urlString += current;</span><br><span class="line">            &#125;</span><br><span class="line">            System.out.println(urlString);</span><br><span class="line">        &#125;<span class="keyword">catch</span>(IOException e)</span><br><span class="line">        &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">*第一次：不进行配置：不能显示高亮</span></span><br><span class="line"><span class="comment">*第二次：代码块加上了语言类型：能够显示部分，不过色彩较少</span></span><br><span class="line"><span class="comment">*</span></span><br><span class="line"><span class="comment">/</span></span><br></pre></td></tr></table></figure>
 
 
+
+<h2 id="测试mermaid功能以实现多种图标的网页端显示"><a href="#测试mermaid功能以实现多种图标的网页端显示" class="headerlink" title="测试mermaid功能以实现多种图标的网页端显示"></a>测试mermaid功能以实现多种图标的网页端显示</h2><p>代码：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram </span><br><span class="line">客户-&gt;&gt;银行柜台: 我要存钱  </span><br><span class="line">银行柜台-&gt;&gt;后台: 改一下这个账户数字哦  </span><br><span class="line">后台-&gt;&gt;银行柜台: 账户的数字改完了，明天起息  </span><br><span class="line">银行柜台-&gt;&gt;客户: 好了，给你回单 ，下一位</span><br></pre></td></tr></table></figure>
+
+<p>展示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sequenceDiagram </span><br><span class="line">客户-&gt;&gt;银行柜台: 我要存钱  </span><br><span class="line">银行柜台-&gt;&gt;后台: 改一下这个账户数字哦  </span><br><span class="line">后台-&gt;&gt;银行柜台: 账户的数字改完了，明天起息  </span><br><span class="line">银行柜台-&gt;&gt;客户: 好了，给你回单 ，下一位</span><br></pre></td></tr></table></figure>
 
 
         </div>
@@ -507,7 +512,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E6%8F%92%E5%85%A5%E5%9B%BE%E7%89%87%EF%BC%9A"><span class="nav-number">1.</span> <span class="nav-text">测试插入图片：</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E4%B8%BB%E9%A2%98%E7%9A%84images%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E9%9D%A2%E5%BB%BA%E7%AB%8Bwz%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%8C%E5%BC%95%E7%94%A8%E8%AF%A5%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%8C%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B%EF%BC%9A"><span class="nav-number">1.1.</span> <span class="nav-text">在主题的images文件夹下面建立wz文件夹，引用该相对路径，命令如下：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9C%A8%E5%8D%9A%E5%AE%A2%E6%A0%B9%E7%9B%AE%E5%BD%95%E4%B8%AD%E7%9A%84source%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%AD%E6%96%B0%E5%BB%BAimages%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%8C%E5%BC%95%E7%94%A8%E8%AF%A5%E7%9B%B8%E5%AF%B9%E8%B7%AF%E5%BE%84%EF%BC%8C%E5%91%BD%E4%BB%A4%E5%A6%82%E4%B8%8B"><span class="nav-number">1.2.</span> <span class="nav-text">在博客根目录中的source文件夹中新建images文件夹，引用该相对路径，命令如下</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95mermaid%E5%8A%9F%E8%83%BD%E4%BB%A5%E5%AE%9E%E7%8E%B0%E5%A4%9A%E7%A7%8D%E5%9B%BE%E6%A0%87%E7%9A%84%E7%BD%91%E9%A1%B5%E7%AB%AF%E6%98%BE%E7%A4%BA"><span class="nav-number">2.</span> <span class="nav-text">测试mermaid功能以实现多种图标的网页端显示</span></a></li></ol>
     </div>
 </div>
         </aside>
