@@ -6,7 +6,7 @@
   <link href="https://www.lzp.zone/atom.xml" rel="self"/>
   
   <link href="https://www.lzp.zone/"/>
-  <updated>2022-03-20T13:04:04.609Z</updated>
+  <updated>2022-03-20T13:07:01.407Z</updated>
   <id>https://www.lzp.zone/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="https://www.lzp.zone/2022/03/20/Homebrew%E5%AE%9D%E5%85%B8/"/>
     <id>https://www.lzp.zone/2022/03/20/Homebrew%E5%AE%9D%E5%85%B8/</id>
     <published>2022-03-20T12:58:33.000Z</published>
-    <updated>2022-03-20T13:04:04.609Z</updated>
+    <updated>2022-03-20T13:07:01.407Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Homebrew"><a href="#Homebrew" class="headerlink" title="Homebrew"></a>Homebrew</h1><blockquote><p>Mac的终端命令行应用管理神器</p></blockquote><h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><ol><li><p>安装软件 <code>brew install ***</code></p><blockquote><p>例如 <code>brew install git</code>,<code>brew install SQL</code></p></blockquote></li><li><p>卸载软件<code>brew uninstall ***</code></p></li><li><p>查询安装的软件<code>brew search ***</code></p></li><li><p>列出由brew安装的软件：<code>brew list</code> </p></li><li><p>更新<code>homebrew</code> : <code>brew update</code></p></li><li><p>用浏览器打开<code>brew</code>的官网： <code>brew home</code></p></li><li><p>显示软件信息： <code>brew info ***</code></p></li><li><p>显示包依赖： <code>brew deps ***</code></p></li></ol>]]></content>
     
@@ -37,7 +37,7 @@
     
     <category term="技术" scheme="https://www.lzp.zone/categories/%E6%8A%80%E6%9C%AF/"/>
     
-    <category term="小窍门" scheme="https://www.lzp.zone/categories/%E6%8A%80%E6%9C%AF/%E5%B0%8F%E7%AA%8D%E9%97%A8/"/>
+    <category term="小妙招" scheme="https://www.lzp.zone/categories/%E6%8A%80%E6%9C%AF/%E5%B0%8F%E5%A6%99%E6%8B%9B/"/>
     
     
     <category term="Homebrew" scheme="https://www.lzp.zone/tags/Homebrew/"/>
