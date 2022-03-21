@@ -376,6 +376,12 @@
 <p>然后要说的是<code>EJB</code>是一种是很老、很繁琐的技术标准（规范）了，现如今基本已经被淘汰了。因为<code>EJB</code>的繁琐、难用，<code>spring</code>的出现彻底革了<code>EJB</code>的命，不然怎么说是<code>Java</code>的春天（spring）来了呢。</p>
 <p><code>EJB</code>实现原理： 就是把原来放到客户端实现的代码放到服务器端，并依靠RMI进行通信。</p>
 <p><a class="link"   target="_blank" rel="noopener" href="http://blog.csdn.net/jojo52013145/article/details/5783677" >这篇博文<i class="fas fa-external-link-alt"></i></a>对EJB的原理和实质的解释非常清晰 。</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://tva1.sinaimg.cn/large/e6c9d24ely1h0hmtye42pj20og0c0tai.jpg"
+                      alt="img"
+                ></p>
 <h2 id="什么是PO？"><a href="#什么是PO？" class="headerlink" title="什么是PO？"></a>什么是PO？</h2><p><code>PO</code> ：<code>persistent object持久对象</code>。<br><code>O/R Mapping </code>是<code> Object Relational Mapping（对象关系映射）</code>的缩写。通俗点讲，就是将对象与关系数据库绑定，用对象来表示关系数据。</p>
 <p><code>PO</code>是<code>在O/R</code>映射的时候出现的概念，如果没有<code>O/R</code>映射，没有这个概念存在了。常用的<code>O/R</code>映射框架有<code>hibernate</code>等。通常对应数据模型(数据库)，本身还有部分业务逻辑的处理。可以看成是与数据库中的表相映射的<code>java</code>对象。最简单的<code>PO</code>就是对应数据库中某个表中的一条记录，多个记录可以用<code>PO</code>的集合。<code>PO</code>中应该不包含任何对数据库的操作。</p>
 <p>1、有时也被称为<code>Data</code>对象，对应数据库中的<code>entity</code>，可以简单认为一个<code>PO</code>对应数据库中的一条记录。<br>2、在<code>hibernate</code>持久化框架中与<code>insert/delet</code>操作密切相关。<br>3<code>、PO</code>中不应该包含任何对数据库的操作。<br>4、<code>PO</code>的属性是跟数据库表的字段一一对应的。<br>5、<code>PO</code>对象需要实现序列化接口。</p>
