@@ -9,7 +9,7 @@
     
     <title>
         
-            MySQL语法第三弹 |
+            Java中属性与字段的区别 |
         
         Nico&#39;s Zone
     </title>
@@ -186,7 +186,7 @@
     <div class="article-content-container">
 
         <div class="article-title">
-            <span class="title-hover-animation">MySQL语法第三弹</span>
+            <span class="title-hover-animation">Java中属性与字段的区别</span>
         </div>
 
         
@@ -204,7 +204,7 @@
                     <div class="meta-info">
                         <div class="article-meta-info">
     <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2021-11-05 16:41:21
+        <i class="fas fa-edit"></i>&nbsp;2022-03-21 16:05:21
     </span>
     
         <span class="article-categories article-meta-item">
@@ -216,7 +216,7 @@
                     </li>
                 
                     <li>
-                        &gt; <a href="/categories/%E6%8A%80%E6%9C%AF/MySQL/">MySQL</a>&nbsp;
+                        &gt; <a href="/categories/%E6%8A%80%E6%9C%AF/Java/">Java</a>&nbsp;
                     </li>
                 
             </ul>
@@ -228,15 +228,15 @@
             <ul>
                 
                     <li>
-                        <a href="/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>&nbsp;
+                        <a href="/tags/Java%E5%B1%9E%E6%80%A7/">Java属性</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/MySQL/">MySQL</a>&nbsp;
+                        | <a href="/tags/Java%E5%AD%97%E6%AE%B5/">Java字段</a>&nbsp;
                     </li>
                 
                     <li>
-                        | <a href="/tags/SQL/">SQL</a>&nbsp;
+                        | <a href="/tags/Spring/">Spring</a>&nbsp;
                     </li>
                 
             </ul>
@@ -246,12 +246,12 @@
     
     
         <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>2 字</span>
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.7k 字</span>
         </span>
     
     
         <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>1 分钟</span>
+            <i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span>
         </span>
     
     
@@ -267,7 +267,57 @@
         
 
         <div class="article-content markdown-body">
-            <p>待更…..</p>
+            <h1 id="深入理解Java中的字段与属性的区别"><a href="#深入理解Java中的字段与属性的区别" class="headerlink" title="深入理解Java中的字段与属性的区别"></a>深入理解Java中的字段与属性的区别</h1><h2 id="Java中的属性和字段有什么区别？"><a href="#Java中的属性和字段有什么区别？" class="headerlink" title="Java中的属性和字段有什么区别？"></a>Java中的属性和字段有什么区别？</h2><p>答：Java中的属性(property)，通常可以理解为get和set方法。而字段(field)，通常叫做“类成员”，或 “类成员变量”，有时也叫“域”，理解为“数据成员”，用来承载数据的。这两个概念是完全不同的。</p>
+<h2 id="2、属性和字段详解"><a href="#2、属性和字段详解" class="headerlink" title="2、属性和字段详解"></a>2、属性和字段详解</h2><h3 id="字段（filed）"><a href="#字段（filed）" class="headerlink" title="字段（filed）"></a>字段（filed）</h3><p>类成员(字段)，通常是在类中定义的类成员变量，例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> String s = <span class="string">&quot;123&quot;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>我们可以说A类中有一个成员变量叫做 s，A 类有一个字段 s 。字段一般用来承载数据，所以为了安全性，一般定义为私有的。</p>
+<p>字段和常量描述了类的数据（域），当这些数据的某些部分不允许外界访问时，根据 “对象封装” 的原则，应尽量避免将一个类型的字段以公有方式提供给外部。除了final修饰的常量。一般将其设置为private类型。既然是私有，那外界怎么访问呢? </p>
+<p>当然是通过Java的属性方法！</p>
+<h3 id="属性（property）"><a href="#属性（property）" class="headerlink" title="属性（property）"></a>属性（property）</h3><p>属性只局限于类中方法的声明，并不与类中其他成员相关，属于JavaBean的范畴。例如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">setA</span><span class="params">(String s)</span></span>&#123;&#125;</span><br><span class="line"><span class="function">String <span class="title">getA</span><span class="params">()</span></span>&#123;&#125;</span><br></pre></td></tr></table></figure>
+
+<p>当一个类中拥有这样一对方法时，我们可以说，这个类中拥有一个可读写的a属性(注意是小写a)。如果去掉了set的方法，则是可读属性，反之亦然。</p>
+<p>其规则是：去掉get或set后其剩余的字符串，如果第二个字母是小写的，则把第一个字母也变成小写 </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">getAge----&gt;age </span><br><span class="line">getCPU----&gt;CPU </span><br></pre></td></tr></table></figure>
+
+<p>比如有下面这个类: </p>
+<blockquote>
+<p>注：下面的User类不是JavaBean。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">           <span class="keyword">private</span> String id; <span class="comment">//私有字段</span></span><br><span class="line">           <span class="keyword">private</span> String name; <span class="comment">//私有字段</span></span><br><span class="line">           <span class="keyword">private</span> String identifier = <span class="string">&quot;440282199008098076&quot;</span>; <span class="comment">//私有字段</span></span><br><span class="line">           </span><br><span class="line">  				 <span class="function"><span class="keyword">public</span> String <span class="title">getId</span><span class="params">()</span> </span>&#123; <span class="comment">//id的可读属性</span></span><br><span class="line">               <span class="keyword">return</span> id;</span><br><span class="line">           &#125;</span><br><span class="line">      </span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(String id)</span> </span>&#123; <span class="comment">//id的可写属性</span></span><br><span class="line">               <span class="keyword">this</span>.id = id;</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123; <span class="comment">//name的可读属性</span></span><br><span class="line">               <span class="keyword">return</span> name;</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123; <span class="comment">//name的可写属性</span></span><br><span class="line">               <span class="keyword">this</span>.name = name;</span><br><span class="line">           &#125;</span><br><span class="line"></span><br><span class="line">           <span class="function"><span class="keyword">public</span> String <span class="title">getIdentifier</span><span class="params">()</span> </span>&#123; <span class="comment">//identifier只有一个get方法，所以它是只读属性</span></span><br><span class="line">           <span class="keyword">return</span> identifier;</span><br><span class="line">           &#125;</span><br><span class="line"> </span><br><span class="line">           <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> Integer SHOW_STATUS_YES = <span class="number">1</span>; <span class="comment">//公共字段</span></span><br><span class="line">           <span class="keyword">public</span> <span class="keyword">final</span> <span class="keyword">static</span> Integer SHOW_STATUS_No = <span class="number">0</span>; <span class="comment">//公共字段</span></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>当我操作这个类时，比如调用<code>getName()</code>方法时，我们要说是获得<code>name</code>属性，调用<code>setName(String name)</code>方法时要说设置<code>name</code>属性，因为对我们来说<code>name</code>字段是私有的，我们操作该<code>Person</code>类时根本看不到有这个<code>name</code>字段 。一个类主要包括字段、属性和方法。属性在此时指的就是<code>get/set</code>访问器。</p>
+<p>同时我们可以看到，这个类有3个属性，5个字段。</p>
+<ul>
+<li><p><code>SHOW_STATUS_YES </code>  为公用字段，一般修饰为<code> final   static</code> 类型，可以通过<code>User</code>类直接访问该字段。</p>
+</li>
+<li><p><code>getIdentifier </code>为只读属性，只能读取私有的<code> identifier</code> 字段，这样就起到了保护数据的安全性的作用。</p>
+</li>
+<li><p><code>id</code>和<code>name</code>为私有字段，且有两个操作他们的<code>public</code>属性。可以通过 <code>getId ()</code>、<code> setId(String   id)</code>、 <code>getName ()</code>、 <code>setName(String   name)</code> 来读取和设置他们的值。</p>
+</li>
+</ul>
+<p>更形象的说就是：</p>
+<p><strong>属性是对字段的封装，供外部访问。</strong></p>
+<p><strong>通常属性将相应的私有字段通过封装成公共属性，以便于外界访问和修改。当然你在封装成属性时，也可以设置该属性为只读，可读写等等权限。</strong></p>
+<p>为了便于测试，可在上方代码末端加上加上<code>toString</code>方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123; <span class="comment">//只有拥有属性的字段，才会被toString方法调用      </span></span><br><span class="line"><span class="keyword">return</span> <span class="string">&quot;User [id=&quot;</span> + id + <span class="string">&quot;, name=&quot;</span> + name + <span class="string">&quot;, identifier=&quot;</span> + identifier + <span class="string">&quot;]&quot;</span>;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<p>测试类</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserTest</span> </span>&#123;</span><br><span class="line">   <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">                User user = <span class="keyword">new</span> User();</span><br><span class="line">                user.setId(<span class="string">&quot;100&quot;</span>);</span><br><span class="line">                user.setName(<span class="string">&quot;chunlynn&quot;</span>);</span><br><span class="line">       </span><br><span class="line">                String identifier = user.getIdentifier();</span><br><span class="line">                System.out.println(<span class="string">&quot;identifier==&quot;</span> + identifier);</span><br><span class="line">                </span><br><span class="line">                <span class="comment">// 4402322BDFV323230001</span></span><br><span class="line">                System.out.println(user);</span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">       </span><br><span class="line"></span><br><span class="line">                <span class="comment">// User [id=100, name=chunlynn, identifier=4402322BDFV323230001</span></span><br><span class="line">                Integer status = User.SHOW_STATUS_YES; </span><br><span class="line">              </span><br><span class="line">              <span class="comment">// public字段的访问</span></span><br><span class="line">                System.out.println(status);</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>虽然在实际项目的开发过程中，公共字段和属性在合适的条件下都可以使用，但是我们应该：</p>
+<p>尽可能的使用<u>属性（property）</u>，而不是<u>数据成员（field）</u>；</p>
+<p>把所有的字段都设置为私有字段，如果要暴露它们，则把它们封装成属性，这也是最佳实践推荐的方式。除了一些常量不能修改的字段，可以设置为<code>public final static</code>类型。</p>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>区别开属性与字段是为了更好的实现<strong>数据安全</strong>，比如当我们想给一个类的属性赋值或者其他类用到了，就需要将这个字段设置为<code>public</code>，然而这样可以对字段进行任意的读写操作，非常不利于数据安全。</p>
+<p>于是就加上了属性，简单说属性实现了字段的封装，属性有<code>get</code>、<code>set </code>方法来控制字段，该字段的属性只有<code>set</code>方法没有<code>get</code>方法，就只可以对该方法进行赋值操作，没有读操作，反之亦然。就是对对字段的操作通过属性来控制。</p>
+<p>可以创建属性，将字段和属性封装在一起。通过属性可以像访问字段一样访问数据成员，实现数据的封装，避免使用非法数据赋值，保证数据完整性，同时类内部发生修改时，避免整个程序的修改。</p>
+<p>基于get,set方法的反射不会破坏对象数据，IDE可以通过约定做些智能提示。如果你自己用反射，你想做些通用处理，去遍历每个字段，没人跟你说哪个字段能写，那个能读，你没法处理嘛。</p>
+<p>在我们项目中用到属性和字段的多半就是<code>POJO</code>、<code>JavaBean</code>、<code>DTO</code>、<code>VO</code> 等等了。</p>
+<p>标准的<code>JavaBean</code>：<br><code>JavaBean</code>是一种特殊的类，主要用于传递数据信息，这种类中的方法主要用于访问私有的字段，且方法名符合某种命名规则。</p>
+<p>如果在两个模块之间传递信息，可以将信息封装进<code>JavaBean</code>中，这种对象称为<code>值对象(Value Object)</code>，或<code>VO</code>，有时也叫<code>DTO（数据传输对象）</code>。方法比较少。这些信息储存在类的私有变量中，通过<code>set()</code>、<code>get()</code>获得。</p>
+<p><code>JavaBean</code>在<code>Java EE开发</code>中，通常用于封装数据，对于遵循以上写法的<code>JavaBean</code>组件，其它程序可以通过反射技术实例化<code>JavaBean</code>对象（内省机制），并且通过反射那些遵循命名规范的方法，从而获知<code>JavaBean</code>的属性，进而调用其属性保存数据。</p>
+<p>引用：<a class="link"   target="_blank" rel="noopener" href="https://blog.csdn.net/chenchunlin526/article/details/71424844" >地址1<i class="fas fa-external-link-alt"></i></a></p>
 
         </div>
 
@@ -275,11 +325,11 @@
             <div class="post-copyright-info">
                 <div class="article-copyright-info-container">
     <ul>
-        <li>本文标题：MySQL语法第三弹</li>
+        <li>本文标题：Java中属性与字段的区别</li>
         <li>本文作者：Nico Liao</li>
-        <li>创建时间：2021-11-05 16:41:21</li>
+        <li>创建时间：2022-03-21 16:05:21</li>
         <li>
-            本文链接：https://www.lzp.zone/2021/11/05/MySQL语法第三弹/
+            本文链接：https://www.lzp.zone/2022/03/21/Java中属性与字段的区别/
         </li>
         <li>
             版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
@@ -296,13 +346,13 @@
                     <div class="article-prev">
                         <a class="prev"
                            rel="prev"
-                           href="/2021/11/05/%E4%BC%98%E9%9B%85%E6%B0%B8%E4%B8%8D%E8%BF%87%E6%97%B6/"
+                           href="/2022/03/21/(Java)Bean,POJO%EF%BC%8CPO%EF%BC%8CDTO%EF%BC%8CVO%EF%BC%8CBO,EJB,EntityBean%E4%B8%80%E9%94%85%E7%AB%AF/"
                         >
                             <span class="left arrow-icon flex-center">
                               <i class="fas fa-chevron-left"></i>
                             </span>
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">优雅永不过时</span>
+                                <span class="post-nav-title-item">Java中属性与字段的区别</span>
                                 <span class="post-nav-item">上一篇</span>
                             </span>
                         </a>
@@ -312,10 +362,10 @@
                     <div class="article-next">
                         <a class="next"
                            rel="next"
-                           href="/2021/11/05/MySQL%E8%AF%AD%E6%B3%95%E7%AC%AC%E4%BA%8C%E5%BC%B9/"
+                           href="/2022/03/20/Spring%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86%E6%B1%87%E6%80%BB/"
                         >
                             <span class="title flex-center">
-                                <span class="post-nav-title-item">MySQL语法第二弹</span>
+                                <span class="post-nav-title-item">Spring基础知识汇总</span>
                                 <span class="post-nav-item">下一篇</span>
                             </span>
                             <span class="right arrow-icon flex-center">
@@ -532,7 +582,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E4%B8%AD%E7%9A%84%E5%AD%97%E6%AE%B5%E4%B8%8E%E5%B1%9E%E6%80%A7%E7%9A%84%E5%8C%BA%E5%88%AB"><span class="nav-number">1.</span> <span class="nav-text">深入理解Java中的字段与属性的区别</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E4%B8%AD%E7%9A%84%E5%B1%9E%E6%80%A7%E5%92%8C%E5%AD%97%E6%AE%B5%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB%EF%BC%9F"><span class="nav-number">1.1.</span> <span class="nav-text">Java中的属性和字段有什么区别？</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2%E3%80%81%E5%B1%9E%E6%80%A7%E5%92%8C%E5%AD%97%E6%AE%B5%E8%AF%A6%E8%A7%A3"><span class="nav-number">1.2.</span> <span class="nav-text">2、属性和字段详解</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%AD%97%E6%AE%B5%EF%BC%88filed%EF%BC%89"><span class="nav-number">1.2.1.</span> <span class="nav-text">字段（filed）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%B1%9E%E6%80%A7%EF%BC%88property%EF%BC%89"><span class="nav-number">1.2.2.</span> <span class="nav-text">属性（property）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">1.3.</span> <span class="nav-text">总结</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
