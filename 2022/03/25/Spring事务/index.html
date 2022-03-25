@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="meta,metauniverse,java,lzp,自学">
+    <meta name="description" content="这是Nico Liao的个人博客空间。">
+    <meta name="author" content="Nico Liao">
+    
+    <title>
+        
+            Spring事务 |
+        
+        Nico&#39;s Zone
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/qe2.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"www.lzp.zone","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/touxiang.svg","favicon":"/images/qe2.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"蝉歌星夜 玉影婆娑"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Nico‘s Zone" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/qe2.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Nico&#39;s Zone
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/%E9%9A%8F%E7%AC%94"
+                            >
+                                随笔
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/%E9%9A%8F%E7%AC%94">随笔</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">Spring事务</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/touxiang.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Nico Liao</span>
+                        
+                            <span class="author-label">阿蒙</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2022-03-25 19:32:13
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/%E6%8A%80%E6%9C%AF/Spring/">Spring</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/Spring/">Spring</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E4%BA%8B%E5%8A%A1/">事务</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>1.5k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>5 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>事务是数据库操作最基本单元，逻辑上的一组操作。要么都成功，如果有一个失败所有操作都失败。</p>
+<h2 id="事务四个特性"><a href="#事务四个特性" class="headerlink" title="事务四个特性"></a>事务四个特性</h2><ul>
+<li>原子性</li>
+<li>一致性</li>
+<li>隔离性</li>
+<li>持久性</li>
+</ul>
+<h2 id="事务操作-Spring-事务管理介绍"><a href="#事务操作-Spring-事务管理介绍" class="headerlink" title="事务操作(Spring 事务管理介绍)"></a>事务操作(<strong>Spring</strong> 事务管理介绍)</h2><p><strong>1</strong>、事务添加到 <strong>JavaEE</strong> 三层结构里面 <strong>Service</strong> 层(业务逻辑层)</p>
+<p><strong>2</strong>、在 <strong>Spring</strong> 进行事务管理操作</p>
+<p>两种方式:</p>
+<ul>
+<li>编程式事务管理</li>
+<li>声明式事务管理(使用)<ul>
+<li>基于注解方式(使用) </li>
+<li>基于 xml 配置文件方式</li>
+</ul>
+</li>
+</ul>
+<p><strong>3</strong>、在 <strong>Spring</strong> 进行声明式事务管理，底层使用 <strong>AOP</strong> 原理</p>
+<p><strong>4</strong>、<strong>Spring</strong> 事务管理 <strong>API</strong></p>
+<p> (1)提供一个接口，代表事务管理器，这个接口针对不同的框架提供不同的实现类</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://tva1.sinaimg.cn/large/e6c9d24ely1h0mf60og0yj20q10b1ju8.jpg"
+                      alt="image-20220325205145678"
+                ></p>
+<h2 id="事务操作事务操作-注解声明式事务管理"><a href="#事务操作事务操作-注解声明式事务管理" class="headerlink" title="事务操作事务操作(注解声明式事务管理)"></a>事务操作事务操作(注解声明式事务管理)</h2><p><strong>1</strong>、在 <strong>spring</strong> 配置文件配置事务管理器</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--创建事务管理器--&gt;</span> </span><br><span class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">&quot;transactionManager&quot;</span>&gt;</span></span><br><span class="line">class=&quot;org.springframework.jdbc.datasource.DataSourceTransactionManager&quot;&gt;</span><br><span class="line"><span class="comment">&lt;!--注入数据源--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">&quot;dataSource&quot;</span> <span class="attr">ref</span>=<span class="string">&quot;dataSource&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>2、在 <strong>spring</strong> 配置文件，开启事务注解</p>
+<p> （1）在 spring 配置文件引入名称空间 tx</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.springframework.org/schema/beans&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns:xsi</span>=<span class="string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns:context</span>=<span class="string">&quot;http://www.springframework.org/schema/context&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns:aop</span>=<span class="string">&quot;http://www.springframework.org/schema/aop&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">xmlns:tx</span>=<span class="string">&quot;http://www.springframework.org/schema/tx&quot;</span></span></span><br><span class="line"><span class="tag"><span class="attr">xsi:schemaLocation</span>=<span class="string">&quot;http://www.springframework.org/schema/beans</span></span></span><br><span class="line"><span class="string"><span class="tag">http://www.springframework.org/schema/beans/spring-beans.xsd</span></span></span><br><span class="line"><span class="string"><span class="tag">http://www.springframework.org/schema/context</span></span></span><br><span class="line"><span class="string"><span class="tag">http://www.springframework.org/schema/context/spring-context.xsd</span></span></span><br><span class="line"><span class="string"><span class="tag">http://www.springframework.org/schema/aop</span></span></span><br><span class="line"><span class="string"><span class="tag">http://www.springframework.org/schema/aop/spring-aop.xsd</span></span></span><br><span class="line"><span class="string"><span class="tag">http://www.springframework.org/schema/tx</span></span></span><br><span class="line"><span class="string"><span class="tag">http://www.springframework.org/schema/tx/spring-tx.xsd&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>（2）开启事务注解</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--开启事务注解--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">&quot;transactionManager&quot;</span>&gt;</span><span class="tag">&lt;/<span class="name">tx:annotation-driven</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><strong>3</strong>、在 <strong>service</strong> 类上面(或者 <strong>service</strong> 类里面方法上面)添加事务注解</p>
+<p>（1）@Transactional，这个注解添加到类上面，也可以添加方法上面</p>
+<p>（2）如果把这个注解添加类上面，这个类里面所有的方法都添加事务 </p>
+<p>（3）如果把这个注解添加方法上面，为这个方法添加事务</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="meta">@Transactional</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserService</span></span>&#123;</span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="事务相关参数"><a href="#事务相关参数" class="headerlink" title="事务相关参数"></a>事务相关参数</h2><blockquote>
+<p>在 <strong>service</strong> 类上面添加注解**@Transactional**，在这个注解里面可以配置事务相关参数</p>
+<p>@Transactional(propagation = Propagation.REQUIRED)</p>
+</blockquote>
+<h3 id="propagation（事务传播行为）"><a href="#propagation（事务传播行为）" class="headerlink" title="propagation（事务传播行为）"></a>propagation（事务传播行为）</h3><p>（1）<strong>多</strong>事务方法直接进行调用，这个过程中事务 是如何进行管理的</p>
+<blockquote>
+<p>事务方法：对数据库表中的数据进行变化（增删改）的操作</p>
+<p>传播行为：多事务方法之间进行调用操作的行为</p>
+</blockquote>
+<p>事务之间的传播行为可以由传播属性指定，Spring定义了7种传播行为：</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://tva1.sinaimg.cn/large/e6c9d24ely1h0mddgue0sj20pn0ewwhm.jpg"
+                      alt="image-20220325194944109"
+                ></p>
+<h3 id="isolation（事务隔离级别）"><a href="#isolation（事务隔离级别）" class="headerlink" title="isolation（事务隔离级别）"></a>isolation（事务隔离级别）</h3><p>（1）在并发过程中可能会产生一些问题，隔离级别就是用来解决这些问题的这么一个事务特性，也即多事务操作之间不会产生不良影响。不考虑隔离性会产生很多问题。</p>
+<p>（2）三个读问题：脏读、不可重复读、虚（幻）读</p>
+<ul>
+<li><p>脏读：一个未提交的事务读取到另一个未提交事务<strong>变化中</strong>的数据</p>
+<blockquote>
+<p>举个例子，东方不败读取到岳不群修改后的Lucy的工资“60000”后，岳不群的事务B又进行了回滚，将Lucy的工资还原到了5000，这明显与东方不败读取到的数据（60000）不符，产生错误！</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://tva1.sinaimg.cn/large/e6c9d24ely1h0mdlqp4l8j20pj09oaap.jpg"
+                      alt="image-20220325195741525"
+                ></p>
+</li>
+<li><p>不可重复读：一个未提交的事务读取到了另一个事务修改的数据</p>
+<blockquote>
+<p>两人都对Lucy的工资进行操作便都开启了事务，起先两个人都读取到了Lucy的原始工资“5000”，后面岳不群眼疾手快，啪一下把5000改成了900并迅速提交，而这个900又被东方不败读到，致使原先读取的数据丢失的这么一种现象。</p>
+</blockquote>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://tva1.sinaimg.cn/large/e6c9d24ely1h0me0a3k1fj20pn091q3i.jpg"
+                      alt="2022-03-25.200407"
+                ></p>
+</li>
+<li><p>虚读（幻读）：一个未提交的事务读取另一个事务添加的数据，过程跟上一个相似。</p>
+</li>
+</ul>
+<p>（3）通过设置事务隔离性，来解决读问题</p>
+<blockquote>
+<p>@Transactional(propagation = Propagation.REQUIRED,isolation = Isolation.REPEATABLE_READ)</p>
+<p>MySQL中默认的隔离级别就是可重复读</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th align="center"></th>
+<th align="center">脏读</th>
+<th align="center">不可重复读</th>
+<th align="center">幻读</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">READ UNCOMMITTED（读未提取）</td>
+<td align="center">有</td>
+<td align="center">有</td>
+<td align="center">有</td>
+</tr>
+<tr>
+<td align="center">READ COMMITTED（读已提取）</td>
+<td align="center">无</td>
+<td align="center">有</td>
+<td align="center">有</td>
+</tr>
+<tr>
+<td align="center">REPEATABLE READ（可重复读）</td>
+<td align="center">无</td>
+<td align="center">无</td>
+<td align="center">有</td>
+</tr>
+<tr>
+<td align="center">SERIALIZABLE（串行化）</td>
+<td align="center">无</td>
+<td align="center">无</td>
+<td align="center">无</td>
+</tr>
+</tbody></table>
+<h3 id="timeout（超时时间）"><a href="#timeout（超时时间）" class="headerlink" title="timeout（超时时间）"></a>timeout（超时时间）</h3><blockquote>
+<p>参数设置写法同上</p>
+</blockquote>
+<p>（1）事务需要在一定时间内进行提交，如果不提交进行回滚；</p>
+<p> （2）默认值是 -1 （即不超时），设置时间以秒单位进行计算。</p>
+<h3 id="readOnly（是否只读）"><a href="#readOnly（是否只读）" class="headerlink" title="readOnly（是否只读）"></a>readOnly（是否只读）</h3><p>（1）读:查询操作，写:添加修改删除操作；</p>
+<p>（2）readOnly 默认值 false，表示可以查询，也可以添加修改删除操作 ；</p>
+<p>（3）设置 readOnly 值是 true，设置成 true 之后，<u>只能</u>查询。</p>
+<h3 id="rollbackFor（回滚）"><a href="#rollbackFor（回滚）" class="headerlink" title="rollbackFor（回滚）"></a>rollbackFor（回滚）</h3><blockquote>
+<p>写法：参数 = 异常类</p>
+</blockquote>
+<p>(1)设置出现哪些异常进行事务回滚</p>
+<h3 id="noRollbackFor（不回滚）"><a href="#noRollbackFor（不回滚）" class="headerlink" title="noRollbackFor（不回滚）"></a>noRollbackFor（不回滚）</h3><blockquote>
+<p>写法同上</p>
+</blockquote>
+<p>(1)设置出现哪些异常不进行事务回滚</p>
+<h2 id="事务操作-XML-声明式事务管理"><a href="#事务操作-XML-声明式事务管理" class="headerlink" title="事务操作(XML 声明式事务管理)"></a>事务操作(<strong>XML</strong> 声明式事务管理)</h2><p><strong>1</strong>、在 <strong>spring</strong> 配置文件中进行配置</p>
+<p>第一步 配置事务管理器 </p>
+<p>第二步 配置通知</p>
+<p>第三步 配置切入点和切面</p>
+<p><img  
+                     lazyload
+                     src="/images/loading.svg"
+                     data-src="https://tva1.sinaimg.cn/large/e6c9d24ely1h0mfluleorj20ov0l5q6a.jpg"
+                      alt="image-20220325210658289"
+                ></p>
+<h2 id="事务操作-完全注解声明式事务管理"><a href="#事务操作-完全注解声明式事务管理" class="headerlink" title="事务操作(完全注解声明式事务管理)"></a>事务操作(完全注解声明式事务管理)</h2><p><strong>1</strong>、创建配置类，使用配置类替代 <strong>xml</strong> 配置文件</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Configuration</span> <span class="comment">//配置类</span></span><br><span class="line"><span class="meta">@ComponentScan(basePackages = &quot;com.atguigu&quot;)</span> <span class="comment">//组件扫描 </span></span><br><span class="line"><span class="meta">@EnableTransactionManagement</span> <span class="comment">//开启事务</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TxConfig</span> </span>&#123;</span><br><span class="line">	<span class="comment">//创建数据库连接池</span></span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> DruidDataSource <span class="title">getDruidDataSource</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	DruidDataSource dataSource = <span class="keyword">new</span> DruidDataSource();</span><br><span class="line">	dataSource.setDriverClassName(<span class="string">&quot;com.mysql.jdbc.Driver&quot;</span>);</span><br><span class="line">	dataSource.setUrl(<span class="string">&quot;jdbc:mysql:///user_db&quot;</span>);</span><br><span class="line">	dataSource.setUsername(<span class="string">&quot;root&quot;</span>); dataSource.setPassword(<span class="string">&quot;root&quot;</span>);</span><br><span class="line">  <span class="keyword">return</span> dataSource;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"> <span class="comment">//创建 JdbcTemplate 对象</span></span><br><span class="line"> <span class="meta">@Bean</span></span><br><span class="line"> <span class="function"><span class="keyword">public</span> JdbcTemplate <span class="title">getJdbcTemplate</span><span class="params">(DataSource dataSource)</span> </span>&#123; </span><br><span class="line"> <span class="comment">//到 ioc 容器中根据类型找到 dataSource</span></span><br><span class="line"> JdbcTemplate jdbcTemplate = <span class="keyword">new</span> JdbcTemplate();</span><br><span class="line"> <span class="comment">//注入 dataSource </span></span><br><span class="line"> jdbcTemplate.setDataSource(dataSource);</span><br><span class="line">  <span class="keyword">return</span> jdbcTemplate;</span><br><span class="line">  &#125;</span><br><span class="line">	</span><br><span class="line">	<span class="comment">//创建事务管理器</span></span><br><span class="line">	<span class="meta">@Bean</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> DataSourceTransactionManager <span class="title">getDataSourceTransactionManager</span><span class="params">(DataSource 	dataSource)</span> </span>&#123;</span><br><span class="line">	DataSourceTransactionManager transactionManager = <span class="keyword">new</span> DataSourceTransactionManager();</span><br><span class="line">	transactionManager.setDataSource(dataSource);</span><br><span class="line">  <span class="keyword">return</span> transactionManager;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：Spring事务</li>
+        <li>本文作者：Nico Liao</li>
+        <li>创建时间：2022-03-25 19:32:13</li>
+        <li>
+            本文链接：https://www.lzp.zone/2022/03/25/Spring事务/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                    <div class="article-prev">
+                        <a class="prev"
+                           rel="prev"
+                           href="/2022/03/25/%E6%AD%A6%E5%8A%9F%E6%BB%9E%E6%B6%A9%E5%A4%84%EF%BC%88%E7%AE%97%E6%B3%95%E7%AF%87%EF%BC%89/"
+                        >
+                            <span class="left arrow-icon flex-center">
+                              <i class="fas fa-chevron-left"></i>
+                            </span>
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">武功滞涩处（算法篇）</span>
+                                <span class="post-nav-item">上一篇</span>
+                            </span>
+                        </a>
+                    </div>
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/03/25/Spring%E5%B8%B8%E7%94%A8%E6%8E%A5%E5%8F%A3%E5%B8%B8%E7%94%A8%E7%B1%BB/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Spring常用接口、常用类</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'KIssPt4MBUXkvSe9yAEy7pb2-gzGzoHsz',
+                    appKey: '71OF5ao664Djvpz7aEonzprV',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '😜 请尽情吐槽吧 ~',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Nico Liao';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('true') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Nico Liao</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+        
+        
+    </div>
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AE%9A%E4%B9%89"><span class="nav-number">1.</span> <span class="nav-text">定义</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E5%9B%9B%E4%B8%AA%E7%89%B9%E6%80%A7"><span class="nav-number">2.</span> <span class="nav-text">事务四个特性</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C-Spring-%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86%E4%BB%8B%E7%BB%8D"><span class="nav-number">3.</span> <span class="nav-text">事务操作(Spring 事务管理介绍)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C-%E6%B3%A8%E8%A7%A3%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86"><span class="nav-number">4.</span> <span class="nav-text">事务操作事务操作(注解声明式事务管理)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0"><span class="nav-number">5.</span> <span class="nav-text">事务相关参数</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#propagation%EF%BC%88%E4%BA%8B%E5%8A%A1%E4%BC%A0%E6%92%AD%E8%A1%8C%E4%B8%BA%EF%BC%89"><span class="nav-number">5.1.</span> <span class="nav-text">propagation（事务传播行为）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#isolation%EF%BC%88%E4%BA%8B%E5%8A%A1%E9%9A%94%E7%A6%BB%E7%BA%A7%E5%88%AB%EF%BC%89"><span class="nav-number">5.2.</span> <span class="nav-text">isolation（事务隔离级别）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#timeout%EF%BC%88%E8%B6%85%E6%97%B6%E6%97%B6%E9%97%B4%EF%BC%89"><span class="nav-number">5.3.</span> <span class="nav-text">timeout（超时时间）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#readOnly%EF%BC%88%E6%98%AF%E5%90%A6%E5%8F%AA%E8%AF%BB%EF%BC%89"><span class="nav-number">5.4.</span> <span class="nav-text">readOnly（是否只读）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#rollbackFor%EF%BC%88%E5%9B%9E%E6%BB%9A%EF%BC%89"><span class="nav-number">5.5.</span> <span class="nav-text">rollbackFor（回滚）</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#noRollbackFor%EF%BC%88%E4%B8%8D%E5%9B%9E%E6%BB%9A%EF%BC%89"><span class="nav-number">5.6.</span> <span class="nav-text">noRollbackFor（不回滚）</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C-XML-%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86"><span class="nav-number">6.</span> <span class="nav-text">事务操作(XML 声明式事务管理)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BA%8B%E5%8A%A1%E6%93%8D%E4%BD%9C-%E5%AE%8C%E5%85%A8%E6%B3%A8%E8%A7%A3%E5%A3%B0%E6%98%8E%E5%BC%8F%E4%BA%8B%E5%8A%A1%E7%AE%A1%E7%90%86"><span class="nav-number">7.</span> <span class="nav-text">事务操作(完全注解声明式事务管理)</span></a></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>

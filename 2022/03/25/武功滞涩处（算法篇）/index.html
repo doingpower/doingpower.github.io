@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="keywords" content="meta,metauniverse,java,lzp,自学">
+    <meta name="description" content="这是Nico Liao的个人博客空间。">
+    <meta name="author" content="Nico Liao">
+    
+    <title>
+        
+            武功滞涩处（算法篇） |
+        
+        Nico&#39;s Zone
+    </title>
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link rel="shortcut icon" href="/images/qe2.svg">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/css/font-awesome.min.css">
+    <script id="hexo-configurations">
+    let KEEP = window.KEEP || {};
+    KEEP.hexo_config = {"hostname":"www.lzp.zone","root":"/","language":"zh-CN","path":"search.json"};
+    KEEP.theme_config = {"toc":{"enable":true,"number":true,"expand_all":true,"init_open":true},"style":{"primary_color":"#0066CC","avatar":"/images/touxiang.svg","favicon":"/images/qe2.svg","article_img_align":"left","left_side_width":"260px","content_max_width":"920px","hover":{"shadow":false,"scale":true},"first_screen":{"enable":true,"background_img":"/images/bg.svg","description":"蝉歌星夜 玉影婆娑"},"scroll":{"progress_bar":{"enable":true},"percent":{"enable":false}}},"local_search":{"enable":true,"preload":true},"code_copy":{"enable":true,"style":"mac"},"pjax":{"enable":true},"lazyload":{"enable":true},"version":"3.4.3"};
+    KEEP.language_ago = {"second":"%s 秒前","minute":"%s 分钟前","hour":"%s 小时前","day":"%s 天前","week":"%s 周前","month":"%s 月前","year":"%s 年前"};
+  </script>
+<meta name="generator" content="Hexo 5.4.0"><link rel="alternate" href="/atom.xml" title="Nico‘s Zone" type="application/atom+xml">
+</head>
+
+
+<body>
+<div class="progress-bar-container">
+    
+        <span class="scroll-progress-bar"></span>
+    
+
+    
+        <span class="pjax-progress-bar"></span>
+        <span class="pjax-progress-icon">
+            <i class="fas fa-circle-notch fa-spin"></i>
+        </span>
+    
+</div>
+
+
+<main class="page-container">
+
+    
+
+    <div class="page-main-content">
+
+        <div class="page-main-content-top">
+            <header class="header-wrapper">
+
+    <div class="header-content">
+        <div class="left">
+            
+                <a class="logo-image" href="/">
+                    <img src="/images/qe2.svg">
+                </a>
+            
+            <a class="logo-title" href="/">
+                Nico&#39;s Zone
+            </a>
+        </div>
+
+        <div class="right">
+            <div class="pc">
+                <ul class="menu-list">
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/"
+                            >
+                                首页
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/archives"
+                            >
+                                归档
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/categories"
+                            >
+                                分类
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/tags"
+                            >
+                                标签
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/%E9%9A%8F%E7%AC%94"
+                            >
+                                随笔
+                            </a>
+                        </li>
+                    
+                        <li class="menu-item">
+                            <a class=""
+                               href="/about"
+                            >
+                                关于
+                            </a>
+                        </li>
+                    
+                    
+                        <li class="menu-item search search-popup-trigger">
+                            <i class="fas fa-search"></i>
+                        </li>
+                    
+                </ul>
+            </div>
+            <div class="mobile">
+                
+                    <div class="icon-item search search-popup-trigger"><i class="fas fa-search"></i></div>
+                
+                <div class="icon-item menu-bar">
+                    <div class="menu-bar-middle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="header-drawer">
+        <ul class="drawer-menu-list">
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/">首页</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/archives">归档</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/categories">分类</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/tags">标签</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/%E9%9A%8F%E7%AC%94">随笔</a>
+                </li>
+            
+                <li class="drawer-menu-item flex-center">
+                    <a class=""
+                       href="/about">关于</a>
+                </li>
+            
+        </ul>
+    </div>
+
+    <div class="window-mask"></div>
+
+</header>
+
+
+        </div>
+
+        <div class="page-main-content-middle">
+
+            <div class="main-content">
+
+                
+                    <div class="fade-in-down-animation">
+    <div class="article-content-container">
+
+        <div class="article-title">
+            <span class="title-hover-animation">武功滞涩处（算法篇）</span>
+        </div>
+
+        
+            <div class="article-header">
+                <div class="avatar">
+                    <img src="/images/touxiang.svg">
+                </div>
+                <div class="info">
+                    <div class="author">
+                        <span class="name">Nico Liao</span>
+                        
+                            <span class="author-label">阿蒙</span>
+                        
+                    </div>
+                    <div class="meta-info">
+                        <div class="article-meta-info">
+    <span class="article-date article-meta-item">
+        <i class="fas fa-edit"></i>&nbsp;2022-03-25 22:45:34
+    </span>
+    
+        <span class="article-categories article-meta-item">
+            <i class="fas fa-folder"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        &gt; <a href="/categories/%E6%8A%80%E6%9C%AF/Java/">Java</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+    
+        <span class="article-tags article-meta-item">
+            <i class="fas fa-tags"></i>&nbsp;
+            <ul>
+                
+                    <li>
+                        <a href="/tags/%E7%AE%97%E6%B3%95/">算法</a>&nbsp;
+                    </li>
+                
+                    <li>
+                        | <a href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/">数据结构</a>&nbsp;
+                    </li>
+                
+            </ul>
+        </span>
+    
+
+    
+    
+        <span class="article-wordcount article-meta-item">
+            <i class="fas fa-file-word"></i>&nbsp;<span>3.9k 字</span>
+        </span>
+    
+    
+        <span class="article-min2read article-meta-item">
+            <i class="fas fa-clock"></i>&nbsp;<span>14 分钟</span>
+        </span>
+    
+    
+        <span class="article-pv article-meta-item">
+            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
+        </span>
+    
+</div>
+
+                    </div>
+                </div>
+            </div>
+        
+
+        <div class="article-content markdown-body">
+            <blockquote>
+<p>文章格式提醒：问题2级、答案分支依次递减 ; 未解决的结尾用”?”进行标识；倒序更新。</p>
+</blockquote>
+<h2 id="Java常用的数据结构？"><a href="#Java常用的数据结构？" class="headerlink" title="Java常用的数据结构？"></a>Java常用的数据结构？</h2><h3 id="Collection"><a href="#Collection" class="headerlink" title="Collection"></a>Collection</h3><h4 id="List-–-有序可重复列表"><a href="#List-–-有序可重复列表" class="headerlink" title="List – 有序可重复列表"></a>List – 有序可重复列表</h4><h5 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h5><p>1、底层是用数组实现的，重要的成员有 元素数组/数组中元素数 size/ modCount 修改次数；操作系统层面：数组在内存中存储是地址连续的，而链表节点是分散的，这就可能造成前驱 节点在一页，后继节点在另一页，在遍历时可能会发生页表置换</p>
+<p>2、进行 add 添加时，若没有指定添加位置，就会根据 size 确定添加的新元素在数组中的下标进行添加， 若 size &gt;= 数组长度，则需要扩容</p>
+<p>3、在进行扩容时，会将 modCount++，并且会将原数组中的元素，拷贝至新数组中，新数组的大小是 原数组的 1.5 倍，默认的初始容量是 0，且在第一次添加元素时，设置数组大小为 10</p>
+<p>4、若指定 i 为添加元素的位置，会调用 System.ArrayCopy 方法对 i 下标以后的元素进行拷贝，拷贝完成 后再把添加的元素放在 i 位置</p>
+<p>5、调用 get 方法时，由于 ArrayList 底层基于数组，因此他实现了一个 RandomAccess 标识接口，表示 按下标读取数据速度很快，主要是由于数组在内存中是连续存储，可以通过第一个元素的存储地址和偏移量 offset 直接计算得到访问的元素的存储地址</p>
+<p>6、若 get 方法是通过元素的值进行查找，则需要遍历数组</p>
+<h5 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h5><p>1、LinkedList 是基于链表存储的，链表中节点 Node 重要包含存储的元素的引用 E，指向前驱节点指针 prev 和指向后继节点的指针 next，LinkedList 中重要成员主要有 size/头节点  first/尾节点 last</p>
+<p>2、LinkedList 由于 Node 在内存中是分散存储的，因此没有对 size 限制，在执行 add 方法时，默认添加在 链表的尾部</p>
+<p>3、若指定添加元素在链表中的位置，LinkedList 需要调用 node 方法，传入参数 Index 找到对应的节点， 在查找对应的节点时，若 Index &lt; size / 2，从头节点向后遍历，若 Index &gt; size / 2，从尾节点向前遍历， 因此即使添加元素只需要改变节点的指针，但查找添加的位置的耗时仍然不小，开销不比 ArrayList 少</p>
+<p>4、调用 get 方法时，若按下标查找，也需要进行同样的遍历，性能比 ArrayList 差很多，按元素值进行查找时， 也需要进行遍历，与 ArrayList 相比半斤八两</p>
+<p>5、链表节点除了元素值，还需要维护两个指针，导致 LinkedList 存储的内存开销远大于 ArrayList</p>
+<h5 id="Vector-amp-Stack"><a href="#Vector-amp-Stack" class="headerlink" title="Vector &amp; Stack"></a>Vector &amp; Stack</h5><p>1、Vector 也是基于数组进行存储，其原理与 ArrayList 类似，区别在于，Vector 中会维护一个 CapacityIncrement 变量，每一次进行扩容时，只增加一个 CapacityIncrement 变量的大小，若没有指定 CapacityInc，默认为 0，且在 扩容时，若 CapacityInc 为 0，则将数组大小翻倍</p>
+<p>2、Vector 中的所有增删改查方法，包括 get 方法，都通过在方法上加 Sychronized 锁方式锁住 Vector 对象， 实现线程安全，性能较差</p>
+<h4 id="Set-–-不可重复列表"><a href="#Set-–-不可重复列表" class="headerlink" title="Set – 不可重复列表"></a>Set – 不可重复列表</h4><h5 id="HashSet"><a href="#HashSet" class="headerlink" title="HashSet"></a>HashSet</h5><p>内部有一个成员变量的 HashMap，实际上就是使用的 HashMap 的方法</p>
+<h5 id="TreeSet"><a href="#TreeSet" class="headerlink" title="TreeSet"></a>TreeSet</h5><p>内部有一个成员变量的 TreeMap，底层就是 TreeMap</p>
+<p>LinkedHashSet：底层调用的 HashSet 的方法，HashSet 中的 HashMap 也可以是 LinkedHashMap，因此实际是由 LinkedHashMap 实现</p>
+<h4 id="Queue-Deque"><a href="#Queue-Deque" class="headerlink" title="Queue / Deque"></a>Queue / Deque</h4><p>LinkedList 实现 Queue 和 Deque，LinkedList 中使用 first 和 last 两个节点的指针用来标记链表的头/尾节点， 当进行 add 方法添加时，默认是在链表尾部添加，调用 poll 方法时，就会返回 first 节点，调用 pop 方法时， 返回 last 节点</p>
+<h5 id="ArrayDeque"><a href="#ArrayDeque" class="headerlink" title="ArrayDeque"></a>ArrayDeque</h5><p>数组的方式实现了双端队列，主要是使用 head 和 tail 两个指针来标记 队列头/栈底 和 队列尾/栈顶</p>
+<h5 id="PriorityQueue"><a href="#PriorityQueue" class="headerlink" title="PriorityQueue"></a>PriorityQueue</h5><p>使用数组的方式实现了优先队列，内部其实是一个二叉堆结构（小顶堆），原理逻辑与堆排序一致</p>
+<p>重要属性有 size，用来标记数组中元素的个数，即新添加的元素的下标</p>
+<p>执行 offer 方法时，先确认 size 是否大于等于数组长度，若大于等于则进行扩容，执行 siftup 方法</p>
+<p>siftup 方法中，若制定了 Comparator，按照 Comparator 的 compare 方法与父节点比较，也就是 (size - 1) &gt;&gt;&gt; 1  下标对应的元素进行堆的插入，若没有指定，按元素实现的 Comparable 接口的 compareTo 方法进行比较</p>
+<p>执行 poll() 方法时，若 size 为 0，返回空值，否则返回数组中下标为 0 的堆顶元素，将数组下标 0 位置替换为 size - 1  位置的元素，并减小 size，调用 siftdown 方法整理堆</p>
+<p>siftdown 方法同样也分为根据 Comparator 和 Comparable 两种比较，主要是对 0 位置新换上来的元素与子节点进行 比较，将其与最大的并大于 0 位置的子节点进行交换，并循环直到将其放到合适的位置</p>
+<h5 id="BlockQueue"><a href="#BlockQueue" class="headerlink" title="BlockQueue"></a>BlockQueue</h5><p>阻塞队列，详见并发</p>
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><h4 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h4><p>重要成员变量</p>
+<p>1、负载因子：默认为 0.75，表示 HashMap 存储的元素数到达 HashMap 散列数组长度的 0.75 时就进行扩容</p>
+<p>负载因子越大，散列数组的</p>
+<p>2、散列数组：HashMap 通过分离链表法解决哈希冲突的问题，在散列数组中存储的就是链表中的一个个头节点</p>
+<p>3、K-V 键值对以 Node 节点的方式进行存储，Node 继承自 Map.Entry，包含 Next 指针，Key，Value 和 hash</p>
+<p>4、threshold 门限，就是 负载因子 * 数组容量</p>
+<p>5、size，HashMap 中当前存储的节点数</p>
+<h5 id="put-方法流程"><a href="#put-方法流程" class="headerlink" title="put 方法流程"></a>put 方法流程</h5><p>1、再哈希：首先对 Key 进行再哈希，将 Key 的 HashCode 按位有符号右移 16 位，再与原本的 HashCode 进行抑或 # 目的：在对散列数组长度取余时，高位通常不参与运算，再哈希让高位参与哈希运算，让低位尽量不同，使哈希分 布更均匀</p>
+<p>2、检查散列数组是否为空，若为空</p>
+<p>3、若 Key 的 HashCode 对应的散列数组位置上节点为空，则直接将新节点加入</p>
+<p>4、若不为空，比较链表的头节点 Key 与 put Key 的 HashCode 是否相等（== || equals），若相等，进行更新， 若不相等，顺着链表按同样的逻辑进行比较</p>
+<p>5、若是 1.8 的HashMap，会先判断链表的头节点是否是 TreeNode，若是，则按照红黑树的逻辑 进行插入</p>
+<p>6、1.7 的 HashMap 中，若遍历完链表仍未找到 Key 相同的节点，则将新节点加入到链表头，会造成并发扩容的死链问题， 1.8 中，将头插法改为了尾插法，解决了死链问题，但并发环境下的其他基本问题，如更新丢失等，仍然没有解决</p>
+<p>7、若添加后 size &gt;= threshold，就会进行扩容</p>
+<h5 id="扩容流程"><a href="#扩容流程" class="headerlink" title="扩容流程"></a>扩容流程</h5><p>1、首先 HashMap 的初始容量是 16，并且每次对原数组长度 * 2 进行扩容，当 size &gt; threshold 时就会进行扩容 # HashMap 每次 * 2 的原因：1）2 的幂次可以用 &amp; 的方式进行取余运算，效率更高；2）在扩容移动链表节点时， 节点在新数组中的位置只可能是原位置 i 或 i + oldCap 旧数组长度，扩容时效率更高</p>
+<p>2、创建新的散列数组，并将旧的散列数组中的链表的头节点拷贝至新数组中，在移动时，节点的 hash 与 oldCap 进行 &amp; 运算，若结果为 0，表示在新数组中位置不变，若不为 0，表示在新数组中位置为 i + oldCap</p>
+<p>3、在移动节点时，会使用一个 loHead/loTail 和 hiHead/hiTail 分别指向新数组中位置 i 和 i + oldCap 的链表的头尾节点， 用一个 next 指针指向当前正在移动节点的下一个节点，在 1.8 中，由于使用尾插法，每一次移动节点都会添加至 loTail/hiTail 之后，不会发生死链问题，而在 1.7 中，由于使用头插法，每一次移动节点都会添加至 head 之前，会发生扩容死链问题</p>
+<p>4、1.7 扩容死链问题：t1 线程正在移动 A 节点，next 节点指向 A 节点的下一个节点 B，即 A -&gt; B，此时 t2 线程完成了 A 和 B 的移动， 此时 B.next = A，在 t1 移动 A 到新数组中后，当前正在移动节点 e 指向 B，next 指向 B.next = A，此时就形成了链表中的环，最终导致 程序崩溃</p>
+<h5 id="红黑树"><a href="#红黑树" class="headerlink" title="红黑树"></a>红黑树</h5><p>1、红黑树类似于 AVL 树，他的查找效率略差于 AVL 树，为树的深度 2log(N + 1)，相比于 AVL 树，红黑树通过节点到叶子节点路径 上黑色节点的数目控制树的平衡，AVL 树通过比较两棵子树的高度差是否超过 1 决定是否平衡，因此红黑树对平衡性要求更低，并且 AVL 树 只能通过单旋转或双旋转重新平衡树，红黑树可以通过修改节点的颜色进行平衡，发生旋转的次数更少，插入删除的效率更高</p>
+<p>2、特点</p>
+<p>每个节点不是黑色就是红色，根节点是黑色</p>
+<p>红色节点的子节点必须是黑色</p>
+<p>从一个节点到每一个叶子节点的路径上的黑色节点数必须相同</p>
+<p>3、HashMap 中什么时候树化/树退化</p>
+<p>1、当链表长度达到 8 时进行树化 # 在 HashMap 源码注解中有解释为什么是 8，大概意思是，红黑树的节点大小大约是正常节点大小的两倍， 并且当节点数较少时链表与红黑树的查找效率差距可以忽略不记，在理想情况下，使用 0.75 作为负载因子， 采用随机哈希算法，树化阈值与树化频率遵循泊松分布，选择 8  的概率是 千万分之 6，7 的概率约是 十万分之 1</p>
+<p>2、当扩容后链表长度小于等于 6 进行树的退化 # 红黑树的节点大小大约是正常节点大小的两倍，并且当节点数较少时链表与红黑树的查找效率差距可以忽略不记， 并且在插入和删除时维护红黑树的平衡性需要额外的开销</p>
+<h4 id="ConcurrentHashMap"><a href="#ConcurrentHashMap" class="headerlink" title="ConcurrentHashMap"></a>ConcurrentHashMap</h4><p>通过分段锁 Segment 保证线程安全，Segment 继承自 ReentrantLock，每一个 Segment 中都包含一个 volatile 的 HashEntry 数组， 一个 volatile 的 count 表示当前 Segment 中存储的 K-V 节点数，一个 Threshold 表示扩容阈值</p>
+<p>HashEntry 是基本存储单位，与 HashMap 中的Entry 基本一样，包含 Key，Value，next，hash，区别在于 HashEntry 的 Value 是 volatile 的，因此对 value 的修改对所有线程可见，并且 next 指针是 final 修饰，防止扩容时发生死链</p>
+<p>ConcurrentHashMap 默认有一个长度为 16 的 Segment 数组，在进行增删改查时，会根据 Key 对 16 取余得到具体处于哪个 Segment， 对于 get 操作不加锁执行，对于 put 等修改操作，调用 Segment 的 lock 方法锁住当前段进行修改，不影响其他段的并发操作，在进行扩容 时，也仅是对单个 Segment 进行扩容</p>
+<p>1.8 的 ConcurrentHashMap 摒弃了 Segment，采用 CAS 和类似于分段锁的方式保证线程安全</p>
+<p>大体结构与 HashMap 一样，在 put 操作时，若 Node 数组对应下标处为空，使用 CAS 的方式不加锁添加节点，若数组中当前位置链表 头节点不为空，则对链表头节点加锁，在 Sychronized 同步代码块中执行与 HashMap 同样的逻辑</p>
+<p>ConcurrentHashMap 在扩容时的移动原数组节点到新数组的操作，可以由多个线程并发完成，从而大大提高效率，在进行移动时， 会将当前线程正在移动的头节点包装为一个 ForwardNode，用来标识当前位置正在移动，当其他线程遍历到数组中的 ForwardNode 节点时，就会忽略并继续遍历，从而保证线程安全，并且在扩容时，仍然可以执行增删改查操作，这些操作通过头节点的 hash 判断 是否是一个 ForwardNode 节点，若是，则调用 helpTransfer 方法，并发的帮助完成扩容动作，完成后再回到循环中执行 put</p>
+<p>get 方法也是通过 Unsafe 的 getObjectVolatile 进行读取，不加锁</p>
+<h4 id="TreeMap"><a href="#TreeMap" class="headerlink" title="TreeMap"></a>TreeMap</h4><p>底层是红黑树</p>
+<h4 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h4><p>采用 HashMap 来存储节点，用一个双向链表存储 HashMap 的 Node 节点使其有序</p>
+<h4 id="HashTable"><a href="#HashTable" class="headerlink" title="HashTable"></a>HashTable</h4><p>使用 Sychronized 锁住方法来保证线程安全，并且默认初始容量为 11，每一次扩容为 oldCap * 2 + 1</p>
+<h3 id="Iterator-迭代器"><a href="#Iterator-迭代器" class="headerlink" title="Iterator 迭代器"></a>Iterator 迭代器</h3><p>1、用来进行集合的遍历，不同的集合有不同的实现，例如 ArrayList 通过一个 cursor 指向下一个遍历的 元素的下标，用一个 lastRet 表示上一个遍历的元素的下标</p>
+<p>2、Iterator 接口中主要包含三个基本方法，hasNext 判断是否还有下一个元素，next 表示遍历获取下一个 元素，remove 表示删除元素</p>
+<p>3、常见的三种遍历方式，fori，foreach，Iterator，其中 fori 只能用于知道集合中具体元素数量时， fori 和 foreach 只能用于知道集合中元素具体类型时，foreach 底层就是 Iterator 的方式遍历</p>
+<h4 id="三种遍历方式的删除"><a href="#三种遍历方式的删除" class="headerlink" title="三种遍历方式的删除"></a>三种遍历方式的删除</h4><h5 id="fori"><a href="#fori" class="headerlink" title="fori"></a>fori</h5><p>在 fori 进行删除时，问题在于删除当前下标会导致之后的元素前移， 比如 “A，B，B，C，C”，在 fori 中判断若元素等于 B 就删除，则会导致 i = 1 时，进行 删除后，i = 2 位置的 B 到达 1 的位置，即 “A，B，C，C”，而此时 i 已经到达 2 的位置， 即 i 指向 C，从而造成漏删，可以通过删除后让 i - 1，或者反向遍历删除解决</p>
+<h5 id="foreach"><a href="#foreach" class="headerlink" title="foreach"></a>foreach</h5><p>对于 ArrayList 等迭代器是 fail-fast 的集合，在遍历时底层是使用迭代器进行遍历， 但在删除元素时，由于没有显式的获取迭代器，因此调用的是 List 的 remove 方法，会触发 迭代器的 fail-fast 机制，抛出异常中断程序</p>
+<h5 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h5><p>没有任何问题</p>
+<h4 id="fail-fast"><a href="#fail-fast" class="headerlink" title="fail-fast"></a>fail-fast</h4><p>迭代器实现了 fail-fast 机制的集合，在集合中都会维护一个 modCount 成员变量，用来表示对集合的修改次数， 在获取迭代器时，在迭代器中会为一个 ExpectedModCount 变量赋值为当前的 modCount，在执行 next，remove，hasnext 方法之前，会先对迭代器的 ExpectedModCount 与集合的 modCount 进行比较，若不相等直接抛出异常</p>
+<h4 id="fail-safe"><a href="#fail-safe" class="headerlink" title="fail-safe"></a>fail-safe</h4><p>Java 中实现 fail-safe 迭代器的集合主要都是通过 Copy-On-Write 方法实现的，例如 CopyOnWriteList，其内 部有一个 ReentrantLock 锁对象，在进行增删改操作时，先加锁，将原有的数组拷贝一份，在新的数组上进行修改，而获取 迭代器时，会用一个 final 变量指向当前的数组，在旧的数组上进行遍历</p>
+
+        </div>
+
+        
+            <div class="post-copyright-info">
+                <div class="article-copyright-info-container">
+    <ul>
+        <li>本文标题：武功滞涩处（算法篇）</li>
+        <li>本文作者：Nico Liao</li>
+        <li>创建时间：2022-03-25 22:45:34</li>
+        <li>
+            本文链接：https://www.lzp.zone/2022/03/25/武功滞涩处（算法篇）/
+        </li>
+        <li>
+            版权声明：本博客所有文章除特别声明外，均采用 <a class="license" target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">BY-NC-SA</a> 许可协议。转载请注明出处！
+        </li>
+    </ul>
+</div>
+
+            </div>
+        
+
+        
+            <div class="article-nav">
+                
+                
+                    <div class="article-next">
+                        <a class="next"
+                           rel="next"
+                           href="/2022/03/25/Spring%E4%BA%8B%E5%8A%A1/"
+                        >
+                            <span class="title flex-center">
+                                <span class="post-nav-title-item">Spring事务</span>
+                                <span class="post-nav-item">下一篇</span>
+                            </span>
+                            <span class="right arrow-icon flex-center">
+                              <i class="fas fa-chevron-right"></i>
+                            </span>
+                        </a>
+                    </div>
+                
+            </div>
+        
+
+        
+            <div class="comment-container">
+                <div class="comments-container">
+    <div id="comment-anchor"></div>
+    <div class="comment-area-title">
+        <i class="fas fa-comments">&nbsp;评论</i>
+    </div>
+    
+
+        
+            
+    <div class="valine-container">
+        <script data-pjax
+                src="//cdn.jsdelivr.net/npm/valine@latest/dist/Valine.min.js"></script>
+        <div id="vcomments"></div>
+        <script data-pjax>
+            function loadValine() {
+                new Valine({
+                    el: '#vcomments',
+                    appId: 'KIssPt4MBUXkvSe9yAEy7pb2-gzGzoHsz',
+                    appKey: '71OF5ao664Djvpz7aEonzprV',
+                    meta: ['nick', 'mail', 'link'],
+                    avatar: 'wavatar',
+                    enableQQ: true,
+                    placeholder: '😜 请尽情吐槽吧 ~',
+                    lang: 'zh-CN'.toLowerCase()
+                });
+
+                function getAuthor(language) {
+                    switch (language) {
+                        case 'en':
+                            return 'Author';
+                        case 'zh-CN':
+                            return '博主';
+                        default:
+                            return 'Master';
+                    }
+                }
+
+                // Add "Author" identify
+                const getValineDomTimer = setInterval(() => {
+                    const vcards = document.querySelectorAll('#vcomments .vcards .vcard');
+                    if (vcards.length > 0) {
+                        let author = 'Nico Liao';
+
+                        if (author) {
+                            for (let vcard of vcards) {
+                                const vnick_dom = vcard.querySelector('.vhead .vnick');
+                                const vnick = vnick_dom.innerHTML;
+                                if (vnick === author) {
+                                    vnick_dom.innerHTML = `${vnick} <span class="author">${getAuthor(KEEP.hexo_config.language)}</span>`
+                                }
+                            }
+                        }
+                        clearInterval(getValineDomTimer);
+                    } else {
+                        clearInterval(getValineDomTimer);
+                    }
+                }, 2000);
+            }
+
+            if ('true') {
+                const loadValineTimeout = setTimeout(() => {
+                    loadValine();
+                    clearTimeout(loadValineTimeout);
+                }, 1000);
+            } else {
+                window.addEventListener('DOMContentLoaded', loadValine);
+            }
+        </script>
+    </div>
+
+
+
+        
+    
+</div>
+
+            </div>
+        
+    </div>
+</div>
+
+
+                
+            </div>
+
+        </div>
+
+        <div class="page-main-content-bottom">
+            <footer class="footer">
+    <div class="info-container">
+        <div class="copyright-info info-item">
+            &copy;
+            
+              <span>2021</span>
+              -
+            
+            2022&nbsp;<i class="fas fa-heart icon-animate"></i>&nbsp;<a href="/">Nico Liao</a>
+        </div>
+        
+            <script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+            <div class="website-count info-item">
+                
+                    <span id="busuanzi_container_site_uv">
+                        访问人数&nbsp;<span id="busuanzi_value_site_uv"></span>&ensp;
+                    </span>
+                
+                
+                    <span id="busuanzi_container_site_pv">
+                        总访问量&nbsp;<span id="busuanzi_value_site_pv"></span>
+                    </span>
+                
+            </div>
+        
+        <div class="theme-info info-item">
+            由 <a target="_blank" href="https://hexo.io">Hexo</a> 驱动&nbsp;|&nbsp;主题&nbsp;<a class="theme-version" target="_blank" href="https://github.com/XPoet/hexo-theme-keep">Keep v3.4.3</a>
+        </div>
+        
+        
+        
+    </div>
+</footer>
+        </div>
+    </div>
+
+    
+        <div class="post-tools">
+            <div class="post-tools-container">
+    <ul class="tools-list">
+        <!-- TOC aside toggle -->
+        
+            <li class="tools-item page-aside-toggle">
+                <i class="fas fa-outdent"></i>
+            </li>
+        
+
+        <!-- go comment -->
+        
+            <li class="go-comment">
+                <i class="fas fa-comment"></i>
+            </li>
+        
+    </ul>
+</div>
+
+        </div>
+    
+
+    <div class="right-bottom-side-tools">
+        <div class="side-tools-container">
+    <ul class="side-tools-list">
+        <li class="tools-item tool-font-adjust-plus flex-center">
+            <i class="fas fa-search-plus"></i>
+        </li>
+
+        <li class="tools-item tool-font-adjust-minus flex-center">
+            <i class="fas fa-search-minus"></i>
+        </li>
+
+        <li class="tools-item tool-expand-width flex-center">
+            <i class="fas fa-arrows-alt-h"></i>
+        </li>
+
+        <li class="tools-item tool-dark-light-toggle flex-center">
+            <i class="fas fa-moon"></i>
+        </li>
+
+        <!-- rss -->
+        
+            <li class="tools-item rss flex-center">
+                <a class="flex-center"
+                   href="/atom.xml"
+                   target="_blank"
+                >
+                    <i class="fas fa-rss"></i>
+                </a>
+            </li>
+        
+
+        
+            <li class="tools-item tool-scroll-to-top flex-center">
+                <i class="fas fa-arrow-up"></i>
+            </li>
+        
+
+        <li class="tools-item tool-scroll-to-bottom flex-center">
+            <i class="fas fa-arrow-down"></i>
+        </li>
+    </ul>
+
+    <ul class="exposed-tools-list">
+        <li class="tools-item tool-toggle-show flex-center">
+            <i class="fas fa-cog fa-spin"></i>
+        </li>
+        
+    </ul>
+</div>
+
+    </div>
+
+    
+        <aside class="page-aside">
+            <div class="post-toc-wrap">
+    <div class="post-toc">
+        <ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java%E5%B8%B8%E7%94%A8%E7%9A%84%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%EF%BC%9F"><span class="nav-number">1.</span> <span class="nav-text">Java常用的数据结构？</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Collection"><span class="nav-number">1.1.</span> <span class="nav-text">Collection</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#List-%E2%80%93-%E6%9C%89%E5%BA%8F%E5%8F%AF%E9%87%8D%E5%A4%8D%E5%88%97%E8%A1%A8"><span class="nav-number">1.1.1.</span> <span class="nav-text">List – 有序可重复列表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ArrayList"><span class="nav-number">1.1.1.1.</span> <span class="nav-text">ArrayList</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#LinkedList"><span class="nav-number">1.1.1.2.</span> <span class="nav-text">LinkedList</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Vector-amp-Stack"><span class="nav-number">1.1.1.3.</span> <span class="nav-text">Vector &amp; Stack</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Set-%E2%80%93-%E4%B8%8D%E5%8F%AF%E9%87%8D%E5%A4%8D%E5%88%97%E8%A1%A8"><span class="nav-number">1.1.2.</span> <span class="nav-text">Set – 不可重复列表</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#HashSet"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">HashSet</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#TreeSet"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">TreeSet</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Queue-Deque"><span class="nav-number">1.1.3.</span> <span class="nav-text">Queue &#x2F; Deque</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#ArrayDeque"><span class="nav-number">1.1.3.1.</span> <span class="nav-text">ArrayDeque</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#PriorityQueue"><span class="nav-number">1.1.3.2.</span> <span class="nav-text">PriorityQueue</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#BlockQueue"><span class="nav-number">1.1.3.3.</span> <span class="nav-text">BlockQueue</span></a></li></ol></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">1.2.</span> <span class="nav-text">Map</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#HashMap"><span class="nav-number">1.2.1.</span> <span class="nav-text">HashMap</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#put-%E6%96%B9%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.1.1.</span> <span class="nav-text">put 方法流程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E6%89%A9%E5%AE%B9%E6%B5%81%E7%A8%8B"><span class="nav-number">1.2.1.2.</span> <span class="nav-text">扩容流程</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#%E7%BA%A2%E9%BB%91%E6%A0%91"><span class="nav-number">1.2.1.3.</span> <span class="nav-text">红黑树</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ConcurrentHashMap"><span class="nav-number">1.2.2.</span> <span class="nav-text">ConcurrentHashMap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TreeMap"><span class="nav-number">1.2.3.</span> <span class="nav-text">TreeMap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#LinkedHashMap"><span class="nav-number">1.2.4.</span> <span class="nav-text">LinkedHashMap</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#HashTable"><span class="nav-number">1.2.5.</span> <span class="nav-text">HashTable</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Iterator-%E8%BF%AD%E4%BB%A3%E5%99%A8"><span class="nav-number">1.3.</span> <span class="nav-text">Iterator 迭代器</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%B8%89%E7%A7%8D%E9%81%8D%E5%8E%86%E6%96%B9%E5%BC%8F%E7%9A%84%E5%88%A0%E9%99%A4"><span class="nav-number">1.3.1.</span> <span class="nav-text">三种遍历方式的删除</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#fori"><span class="nav-number">1.3.1.1.</span> <span class="nav-text">fori</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#foreach"><span class="nav-number">1.3.1.2.</span> <span class="nav-text">foreach</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#Iterator"><span class="nav-number">1.3.1.3.</span> <span class="nav-text">Iterator</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fail-fast"><span class="nav-number">1.3.2.</span> <span class="nav-text">fail-fast</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#fail-safe"><span class="nav-number">1.3.3.</span> <span class="nav-text">fail-safe</span></a></li></ol></li></ol></li></ol>
+    </div>
+</div>
+        </aside>
+    
+
+    <div class="image-viewer-container">
+    <img src="">
+</div>
+
+
+    
+        <div class="search-pop-overlay">
+    <div class="popup search-popup">
+        <div class="search-header">
+          <span class="search-input-field-pre">
+            <i class="fas fa-keyboard"></i>
+          </span>
+            <div class="search-input-container">
+                <input autocomplete="off"
+                       autocorrect="off"
+                       autocapitalize="off"
+                       placeholder="搜索..."
+                       spellcheck="false"
+                       type="search"
+                       class="search-input"
+                >
+            </div>
+            <span class="popup-btn-close">
+                <i class="fas fa-times"></i>
+            </span>
+        </div>
+        <div id="search-result">
+            <div id="no-result">
+                <i class="fas fa-spinner fa-pulse fa-5x fa-fw"></i>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+
+</main>
+
+
+
+<script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/utils.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/main.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/header-shrink.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/back2top.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/dark-light-toggle.js"></script>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/local-search.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/code-copy.js"></script>
+
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/lazyload.js"></script>
+
+
+<div class="post-scripts pjax">
+    
+        <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/left-side-toggle.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/anime.min.js"></script><script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/toc.js"></script>
+    
+</div>
+
+
+    <script src="//cdn.jsdelivr.net/npm/hexo-theme-keep@3.4.3/source/js/libs/pjax.min.js"></script>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        window.pjax = new Pjax({
+            selectors: [
+                'head title',
+                '.page-container',
+                '.pjax'
+            ],
+            history: true,
+            debug: false,
+            cacheBust: false,
+            timeout: 0,
+            analytics: false,
+            currentUrlFullReload: false,
+            scrollRestoration: false,
+            // scrollTo: true,
+        });
+
+        document.addEventListener('pjax:send', () => {
+            KEEP.utils.pjaxProgressBarStart();
+        });
+
+        document.addEventListener('pjax:complete', () => {
+            KEEP.utils.pjaxProgressBarEnd();
+            window.pjax.executeScripts(document.querySelectorAll('script[data-pjax], .pjax script'));
+            KEEP.refresh();
+        });
+    });
+</script>
+
+
+
+</body>
+</html>
