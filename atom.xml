@@ -337,13 +337,13 @@
     <category term="JDBC" scheme="https://www.lzp.zone/categories/%E6%8A%80%E6%9C%AF/JDBC/"/>
     
     
-    <category term="MySQL" scheme="https://www.lzp.zone/tags/MySQL/"/>
-    
-    <category term="数据库" scheme="https://www.lzp.zone/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
-    
     <category term="JDBC" scheme="https://www.lzp.zone/tags/JDBC/"/>
     
     <category term="Druid" scheme="https://www.lzp.zone/tags/Druid/"/>
+    
+    <category term="数据库" scheme="https://www.lzp.zone/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="MySQL" scheme="https://www.lzp.zone/tags/MySQL/"/>
     
     <category term="连接池" scheme="https://www.lzp.zone/tags/%E8%BF%9E%E6%8E%A5%E6%B1%A0/"/>
     
@@ -491,9 +491,9 @@
     <category term="MySQL" scheme="https://www.lzp.zone/categories/%E6%8A%80%E6%9C%AF/MySQL/"/>
     
     
-    <category term="MySQL" scheme="https://www.lzp.zone/tags/MySQL/"/>
-    
     <category term="数据库" scheme="https://www.lzp.zone/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="MySQL" scheme="https://www.lzp.zone/tags/MySQL/"/>
     
     <category term="SQL" scheme="https://www.lzp.zone/tags/SQL/"/>
     
@@ -524,9 +524,9 @@
     <category term="MySQL" scheme="https://www.lzp.zone/categories/%E6%8A%80%E6%9C%AF/MySQL/"/>
     
     
-    <category term="MySQL" scheme="https://www.lzp.zone/tags/MySQL/"/>
-    
     <category term="数据库" scheme="https://www.lzp.zone/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="MySQL" scheme="https://www.lzp.zone/tags/MySQL/"/>
     
     <category term="SQL" scheme="https://www.lzp.zone/tags/SQL/"/>
     
@@ -592,9 +592,9 @@
     <category term="拆书稿" scheme="https://www.lzp.zone/categories/%E6%82%A6%E8%AF%BB/%E6%8B%86%E4%B9%A6%E7%A8%BF/"/>
     
     
-    <category term="MySQL" scheme="https://www.lzp.zone/tags/MySQL/"/>
-    
     <category term="数据库" scheme="https://www.lzp.zone/tags/%E6%95%B0%E6%8D%AE%E5%BA%93/"/>
+    
+    <category term="MySQL" scheme="https://www.lzp.zone/tags/MySQL/"/>
     
     <category term="SQL" scheme="https://www.lzp.zone/tags/SQL/"/>
     
