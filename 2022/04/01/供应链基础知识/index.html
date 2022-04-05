@@ -202,56 +202,50 @@
                         
                     </div>
                     <div class="meta-info">
-                        <div class="article-meta-info">
-    <span class="article-date article-meta-item">
-        <i class="fas fa-edit"></i>&nbsp;2022-04-01 22:10:07
-    </span>
-    
-        <span class="article-categories article-meta-item">
-            <i class="fas fa-folder"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/categories/%E6%8A%80%E6%9C%AF/">技术</a>&nbsp;
-                    </li>
-                
-                    <li>
-                        &gt; <a href="/categories/%E6%8A%80%E6%9C%AF/%E4%BE%9B%E5%BA%94%E9%93%BE/">供应链</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
-    
-        <span class="article-tags article-meta-item">
-            <i class="fas fa-tags"></i>&nbsp;
-            <ul>
-                
-                    <li>
-                        <a href="/tags/%E4%BE%9B%E5%BA%94%E9%93%BE/">供应链</a>&nbsp;
-                    </li>
-                
-            </ul>
-        </span>
-    
+                        .article-meta-info {
+  font-size: 0.8rem;
+  color: var(--third-text-color);
 
-    
-    
-        <span class="article-wordcount article-meta-item">
-            <i class="fas fa-file-word"></i>&nbsp;<span>1.9k 字</span>
-        </span>
-    
-    
-        <span class="article-min2read article-meta-item">
-            <i class="fas fa-clock"></i>&nbsp;<span>6 分钟</span>
-        </span>
-    
-    
-        <span class="article-pv article-meta-item">
-            <i class="fas fa-eye"></i>&nbsp;<span id="busuanzi_value_page_pv"></span>
-        </span>
-    
-</div>
+  .article-meta-item {
+    margin-right: 10px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+
+  .article-tags, .article-categories {
+    display: inline;
+
+    ul, li {
+      display: inline;
+    }
+
+    a {
+      color: var(--third-text-color);
+
+      &:hover {
+        color: var(--primary-color);
+      }
+    }
+  }
+
+
+  .article-wordcount, .article-tags {
+    +keep-mobile() {
+      display: none;
+    }
+  }
+
+  .article-min2read, .article-categories {
+
+    +keep-tablet() {
+      display: none;
+    }
+
+  }
+}
 
                     </div>
                 </div>
@@ -376,8 +370,35 @@
 </blockquote>
 <p>越来越多的公司倾向于集成采购、运营和物流三个部门，以及计划职能，即集成供应链（ISC）。供应链管理的概念更加深入，不光是大企业，而且是中小企业；不光是制造业，而且是建筑业、电商、餐饮等各种行业。例如，“餐饮看上去是开餐馆，其实竞争的是供应链实力”。</p>
 <p>企业要生存，不但需要开发好的产品（主要是设计的责任）、卖个好价钱（销售的任务），而且要以适当的成本、速度生产出来（供应链的责任）。随着整体经济的进一步成熟、放缓，降本增效的压力必将加剧，而<strong>作为降本增效的主要源泉，供应链管理任重道远</strong>。</p>
-<h3 id="采购与供应管理"><a href="#采购与供应管理" class="headerlink" title="采购与供应管理"></a>采购与供应管理</h3><h3 id="物流管理：从A点到B点"><a href="#物流管理：从A点到B点" class="headerlink" title="物流管理：从A点到B点"></a>物流管理：从A点到B点</h3><h3 id="运营管理：千遍万变不走样"><a href="#运营管理：千遍万变不走样" class="headerlink" title="运营管理：千遍万变不走样"></a>运营管理：千遍万变不走样</h3><blockquote>
-<p>待更</p>
+<h3 id="采购与供应管理"><a href="#采购与供应管理" class="headerlink" title="采购与供应管理"></a>采购与供应管理</h3><blockquote>
+<p>“供应管理起源于采购管理。从严格意义上讲，供应管理的范畴远大于采购管理”</p>
+<p>“采购的地位提升，其重心也从订单处理转为对供应商的战略管理，过渡到供应管理。”</p>
+</blockquote>
+<ul>
+<li>与采购管理的围绕订单处理相对应，供应管理更侧重供应商的战略管理，通过分析开支、确认需求、评估供应商、选择供应商、签订协议、管理供应商来确保以合适的成本保质、保量地获取资源。从时间跨度上讲，供应管理向前延伸到设计和新产品开发，向后延伸到产品的生命周期结束；从公司阶层上讲，供应管理延伸到对公司的资产、现金流等的管理，直接影响到公司的盈利。</li>
+<li>从供应链管理的角度来看，采购处于公司内外结合点，是管理供应链的理想选择。作为采购部门，突破对传统职能的认识，在管理供应链上发挥更大作用，也是提升采购在公司的地位的一个主要办法。</li>
+<li>采购对内管理需求（比如设计的新产品寻源、生产部门的量产需求）、对外管理供应商（比如供应商选择和绩效管理），通过理顺需求来理顺供应，其实就在管理供应链，或者说供应链的一大块。”</li>
+</ul>
+<h3 id="物流管理：从A点到B点"><a href="#物流管理：从A点到B点" class="headerlink" title="物流管理：从A点到B点"></a>物流管理：从A点到B点</h3><ul>
+<li><p>物流管理是供应链管理的一部分，即为满足客户需求，通过计划、实施和控制，促成产品、服务和信息从发源地到消费点的有效流动及储藏。</p>
+</li>
+<li><p>物流管理的定义：</p>
+<ul>
+<li>物流管理是供应链管理的一部分。</li>
+<li>物流管理的对象是产品、服务、信息的流动与储藏。</li>
+<li>物流管理不但管理产品、服务、信息的正向流动（从供应商到客户），也管理其反向流动（从客户到供应商，即逆向物流）。逆向物流日趋重要，是退货、保修、返修等售后服务的重要一环，也更难管理。</li>
+</ul>
+<p>按照上述定义，物流管理的对象包括运输、车队、仓储、物料处理、订单履行、物流网络设计、库存管理、供给与需求规划，以及对第三方物流服务商的管理。当然，有时候物流管理也会涉及采购、生产、包装和客户服务等。它不但要优化物流的各环节，而且要考虑与其他职能的集成。</p>
+</li>
+</ul>
+<h3 id="运营管理：千遍万变不走样"><a href="#运营管理：千遍万变不走样" class="headerlink" title="运营管理：千遍万变不走样"></a>运营管理：千遍万变不走样</h3><ul>
+<li><p>运营管理是对设计、工业工程、管理信息系统、质量管理、生产管理、库存管理、会计等职能的集成，以有效地规划、利用和控制生产或服务机构</p>
+</li>
+<li><p>背后没有成套的系统、流程、培训、监控是不可能的。运营管理的价值就体现在对这些系统的设计、运营和改进。而且只有从日常运营的繁杂琐事中上升到流程、系统的实质问题并改进，运营管理者才能脱颖而出。这点同样适用于供应链管理。</p>
+</li>
+</ul>
+<h2 id="从美国三大协会说供应链管理的演变"><a href="#从美国三大协会说供应链管理的演变" class="headerlink" title="从美国三大协会说供应链管理的演变"></a>从美国三大协会说供应链管理的演变</h2><h2 id="供应链是产品流、信息流和资金流的集成"><a href="#供应链是产品流、信息流和资金流的集成" class="headerlink" title="供应链是产品流、信息流和资金流的集成"></a>供应链是产品流、信息流和资金流的集成</h2><h2 id="供应链：我们离集成管理还有多远"><a href="#供应链：我们离集成管理还有多远" class="headerlink" title="供应链：我们离集成管理还有多远"></a>供应链：我们离集成管理还有多远</h2><h2 id="复杂度是供应链管理的大敌"><a href="#复杂度是供应链管理的大敌" class="headerlink" title="复杂度是供应链管理的大敌"></a>复杂度是供应链管理的大敌</h2><h2 id="供应链：大并不是伟大"><a href="#供应链：大并不是伟大" class="headerlink" title="供应链：大并不是伟大"></a>供应链：大并不是伟大</h2><h2 id="供应链设计：产品、信息和资金流的优化"><a href="#供应链设计：产品、信息和资金流的优化" class="headerlink" title="供应链设计：产品、信息和资金流的优化"></a>供应链设计：产品、信息和资金流的优化</h2><h2 id="供应链设计：是救命药，也可能是毒药"><a href="#供应链设计：是救命药，也可能是毒药" class="headerlink" title="供应链设计：是救命药，也可能是毒药"></a>供应链设计：是救命药，也可能是毒药</h2><h2 id="供应链设计中的一级供应商选择"><a href="#供应链设计中的一级供应商选择" class="headerlink" title="供应链设计中的一级供应商选择"></a>供应链设计中的一级供应商选择</h2><h2 id="从苹果和本田说下级供应商管理"><a href="#从苹果和本田说下级供应商管理" class="headerlink" title="从苹果和本田说下级供应商管理"></a>从苹果和本田说下级供应商管理</h2><h2 id="从波音787的紧固件说供应链的末端"><a href="#从波音787的紧固件说供应链的末端" class="headerlink" title="从波音787的紧固件说供应链的末端"></a>从波音787的紧固件说供应链的末端</h2><h2 id="控制牛鞭效应，控制供应链的波动"><a href="#控制牛鞭效应，控制供应链的波动" class="headerlink" title="控制牛鞭效应，控制供应链的波动"></a>控制牛鞭效应，控制供应链的波动</h2><h2 id="专注供应链库存，遏制“打不死的妖怪”"><a href="#专注供应链库存，遏制“打不死的妖怪”" class="headerlink" title="专注供应链库存，遏制“打不死的妖怪”"></a>专注供应链库存，遏制“打不死的妖怪”</h2><h2 id="推动工艺和设计优化，跨越供应链降本三台阶"><a href="#推动工艺和设计优化，跨越供应链降本三台阶" class="headerlink" title="推动工艺和设计优化，跨越供应链降本三台阶"></a>推动工艺和设计优化，跨越供应链降本三台阶</h2><blockquote>
+<p>待整理更新</p>
 </blockquote>
 
         </div>
@@ -628,7 +649,7 @@
         <aside class="page-aside">
             <div class="post-toc-wrap">
     <div class="post-toc">
-        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E4%BE%9B%E5%BA%94%E9%93%BE%E7%AE%A1%E7%90%86%E9%9C%80%E8%A6%81%E5%85%A8%E5%B1%80%E8%A7%82"><span class="nav-number">2.</span> <span class="nav-text">第一章 供应链管理需要全局观</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E8%AF%BB"><span class="nav-number">2.1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9B%E5%BA%94%E9%93%BE%E7%AE%A1%E7%90%86%E4%B8%8E%E7%9B%B2%E4%BA%BA%E6%91%B8%E8%B1%A1"><span class="nav-number">2.2.</span> <span class="nav-text">供应链管理与盲人摸象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%87%E8%B4%AD%E4%B8%8E%E4%BE%9B%E5%BA%94%E7%AE%A1%E7%90%86"><span class="nav-number">2.2.1.</span> <span class="nav-text">采购与供应管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E6%B5%81%E7%AE%A1%E7%90%86%EF%BC%9A%E4%BB%8EA%E7%82%B9%E5%88%B0B%E7%82%B9"><span class="nav-number">2.2.2.</span> <span class="nav-text">物流管理：从A点到B点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%90%A5%E7%AE%A1%E7%90%86%EF%BC%9A%E5%8D%83%E9%81%8D%E4%B8%87%E5%8F%98%E4%B8%8D%E8%B5%B0%E6%A0%B7"><span class="nav-number">2.2.3.</span> <span class="nav-text">运营管理：千遍万变不走样</span></a></li></ol></li></ol></li></ol>
+        <ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%A0-%E4%BE%9B%E5%BA%94%E9%93%BE%E7%AE%A1%E7%90%86%E9%9C%80%E8%A6%81%E5%85%A8%E5%B1%80%E8%A7%82"><span class="nav-number">2.</span> <span class="nav-text">第一章 供应链管理需要全局观</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%AF%BC%E8%AF%BB"><span class="nav-number">2.1.</span> <span class="nav-text">导读</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9B%E5%BA%94%E9%93%BE%E7%AE%A1%E7%90%86%E4%B8%8E%E7%9B%B2%E4%BA%BA%E6%91%B8%E8%B1%A1"><span class="nav-number">2.2.</span> <span class="nav-text">供应链管理与盲人摸象</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%87%87%E8%B4%AD%E4%B8%8E%E4%BE%9B%E5%BA%94%E7%AE%A1%E7%90%86"><span class="nav-number">2.2.1.</span> <span class="nav-text">采购与供应管理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%A9%E6%B5%81%E7%AE%A1%E7%90%86%EF%BC%9A%E4%BB%8EA%E7%82%B9%E5%88%B0B%E7%82%B9"><span class="nav-number">2.2.2.</span> <span class="nav-text">物流管理：从A点到B点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%BF%90%E8%90%A5%E7%AE%A1%E7%90%86%EF%BC%9A%E5%8D%83%E9%81%8D%E4%B8%87%E5%8F%98%E4%B8%8D%E8%B5%B0%E6%A0%B7"><span class="nav-number">2.2.3.</span> <span class="nav-text">运营管理：千遍万变不走样</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E7%BE%8E%E5%9B%BD%E4%B8%89%E5%A4%A7%E5%8D%8F%E4%BC%9A%E8%AF%B4%E4%BE%9B%E5%BA%94%E9%93%BE%E7%AE%A1%E7%90%86%E7%9A%84%E6%BC%94%E5%8F%98"><span class="nav-number">2.3.</span> <span class="nav-text">从美国三大协会说供应链管理的演变</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9B%E5%BA%94%E9%93%BE%E6%98%AF%E4%BA%A7%E5%93%81%E6%B5%81%E3%80%81%E4%BF%A1%E6%81%AF%E6%B5%81%E5%92%8C%E8%B5%84%E9%87%91%E6%B5%81%E7%9A%84%E9%9B%86%E6%88%90"><span class="nav-number">2.4.</span> <span class="nav-text">供应链是产品流、信息流和资金流的集成</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9B%E5%BA%94%E9%93%BE%EF%BC%9A%E6%88%91%E4%BB%AC%E7%A6%BB%E9%9B%86%E6%88%90%E7%AE%A1%E7%90%86%E8%BF%98%E6%9C%89%E5%A4%9A%E8%BF%9C"><span class="nav-number">2.5.</span> <span class="nav-text">供应链：我们离集成管理还有多远</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%A4%8D%E6%9D%82%E5%BA%A6%E6%98%AF%E4%BE%9B%E5%BA%94%E9%93%BE%E7%AE%A1%E7%90%86%E7%9A%84%E5%A4%A7%E6%95%8C"><span class="nav-number">2.6.</span> <span class="nav-text">复杂度是供应链管理的大敌</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9B%E5%BA%94%E9%93%BE%EF%BC%9A%E5%A4%A7%E5%B9%B6%E4%B8%8D%E6%98%AF%E4%BC%9F%E5%A4%A7"><span class="nav-number">2.7.</span> <span class="nav-text">供应链：大并不是伟大</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9B%E5%BA%94%E9%93%BE%E8%AE%BE%E8%AE%A1%EF%BC%9A%E4%BA%A7%E5%93%81%E3%80%81%E4%BF%A1%E6%81%AF%E5%92%8C%E8%B5%84%E9%87%91%E6%B5%81%E7%9A%84%E4%BC%98%E5%8C%96"><span class="nav-number">2.8.</span> <span class="nav-text">供应链设计：产品、信息和资金流的优化</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9B%E5%BA%94%E9%93%BE%E8%AE%BE%E8%AE%A1%EF%BC%9A%E6%98%AF%E6%95%91%E5%91%BD%E8%8D%AF%EF%BC%8C%E4%B9%9F%E5%8F%AF%E8%83%BD%E6%98%AF%E6%AF%92%E8%8D%AF"><span class="nav-number">2.9.</span> <span class="nav-text">供应链设计：是救命药，也可能是毒药</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BE%9B%E5%BA%94%E9%93%BE%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E4%B8%80%E7%BA%A7%E4%BE%9B%E5%BA%94%E5%95%86%E9%80%89%E6%8B%A9"><span class="nav-number">2.10.</span> <span class="nav-text">供应链设计中的一级供应商选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E8%8B%B9%E6%9E%9C%E5%92%8C%E6%9C%AC%E7%94%B0%E8%AF%B4%E4%B8%8B%E7%BA%A7%E4%BE%9B%E5%BA%94%E5%95%86%E7%AE%A1%E7%90%86"><span class="nav-number">2.11.</span> <span class="nav-text">从苹果和本田说下级供应商管理</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%BB%8E%E6%B3%A2%E9%9F%B3787%E7%9A%84%E7%B4%A7%E5%9B%BA%E4%BB%B6%E8%AF%B4%E4%BE%9B%E5%BA%94%E9%93%BE%E7%9A%84%E6%9C%AB%E7%AB%AF"><span class="nav-number">2.12.</span> <span class="nav-text">从波音787的紧固件说供应链的末端</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A7%E5%88%B6%E7%89%9B%E9%9E%AD%E6%95%88%E5%BA%94%EF%BC%8C%E6%8E%A7%E5%88%B6%E4%BE%9B%E5%BA%94%E9%93%BE%E7%9A%84%E6%B3%A2%E5%8A%A8"><span class="nav-number">2.13.</span> <span class="nav-text">控制牛鞭效应，控制供应链的波动</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E4%B8%93%E6%B3%A8%E4%BE%9B%E5%BA%94%E9%93%BE%E5%BA%93%E5%AD%98%EF%BC%8C%E9%81%8F%E5%88%B6%E2%80%9C%E6%89%93%E4%B8%8D%E6%AD%BB%E7%9A%84%E5%A6%96%E6%80%AA%E2%80%9D"><span class="nav-number">2.14.</span> <span class="nav-text">专注供应链库存，遏制“打不死的妖怪”</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8E%A8%E5%8A%A8%E5%B7%A5%E8%89%BA%E5%92%8C%E8%AE%BE%E8%AE%A1%E4%BC%98%E5%8C%96%EF%BC%8C%E8%B7%A8%E8%B6%8A%E4%BE%9B%E5%BA%94%E9%93%BE%E9%99%8D%E6%9C%AC%E4%B8%89%E5%8F%B0%E9%98%B6"><span class="nav-number">2.15.</span> <span class="nav-text">推动工艺和设计优化，跨越供应链降本三台阶</span></a></li></ol></li></ol>
     </div>
 </div>
         </aside>
